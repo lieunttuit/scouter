@@ -1,17 +1,43 @@
+<% if !current_user %>
+  <div>
+    <%= link_to 'ログイン', login_path, class: 'btn btn-success btn-lg text-white mr-3' %>
+    <%= link_to 'さっそくはじめる', new_user_path, class: 'btn btn-info btn-lg text-white' %>
+  </div>
+  <h1 class="display-3 my-5">第一印象は<br />「戦闘力」だ！！！</h1>
+  <h2>キミの「戦闘力」は果たして！？</h2>
+  <div>
+    <%=image_tag "scouter_top.jpg", class: 'img-fluid rounded img-thumbnail' %>
+  </div>
+  <h3 class="mt-4">登録スカウターたちが写真でキミの戦闘力を計測！</h3>
+  <h3 class="mt-4">年代別のキミの評価もわかるぞ！</h3>
+  <p class="mt-4">自分がスカウターとなってだれかを評価をすればポイントがたまるぞ（1人評価につき１ポイント）</p>
+  <p class="my-4">5ポイントをためると「気になる人」の評価をチェックできる！</p>
+  <div>
+    <%= link_to 'ログイン', login_path, class: 'btn btn-success btn-lg text-white mr-3' %>
+    <%= link_to 'さっそくはじめる', new_user_path, class: 'btn btn-info btn-lg text-white' %>
+  </div>
+<% else %>
 
+  <P class="large">- スカウターを発動中 -</P>
+  <p><%= @users.count %> 人</p>
 
+  <%= render "shared/paginate" %>
 
-<div class="row">
+  <div class="row">
 
-  <% @users.each do |user| %>
-  <div class="col-sm-3">
-    <div class="card mb-3">
-      <%# <%= image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
-      <div class="card-body">
-        <h5 class="card-title"><%= user.name %></h5>
-        <%= link_to "計測する！", user_path(user), class: "btn btn-border" %>
+    <% @users.each do |user| %>
+    <div class="col-sm-3">
+      <div class="card mb-3">
+        <%= image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+        <div class="card-body">
+          <h5 class="card-title"><%= user.name %></h5>
+          <%= link_to "計測する！", user_path(user), class: "btn btn-border" %>
+        </div>
       </div>
-    </div>
-  </div>  
-  <% end %>
-</div>
+    </div>  
+    <% end %>
+  </div>
+
+  <%= render "shared/paginate" %>
+  
+ <% end %>

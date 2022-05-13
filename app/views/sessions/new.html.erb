@@ -1,0 +1,31 @@
+<h1>ログイン</h1>
+
+<% if @error_message %>
+  <p class="text-danger"><%= @error_message %></p>
+<% end %>
+
+<%= form_with scope: :session, class: "mx-3 mt-4", local: true do |f| %>
+
+<div class="form-group d-flex row">
+  <div class="col-sm-12 col-md-3">
+    <%= f.label :email, 'メールアドレス' %>
+  </div>
+  <div class="col-sm-5 col-md-9">
+    <%= f.email_field :email, value: @email, autofocus: true, autocomplete: "email", class: "form-control", id: "session_email" %>
+  </div>
+  </div>
+  <div class="form-group d-flex row">
+  <div class="col-sm-12 col-md-3">
+    <%= f.label :password, 'パスワード' %>
+  </div>
+  <div class="col-sm-5 col-md-9">
+  <%= f.password_field :password, value: @password, autocomplete: "password", class: "form-control", id: "session_password" %>
+  </div>
+</div>
+<div class="text-center mt-5">
+  <%= f.submit 'ログインする', class: "btn btn-info btn-lg text-white" %>
+</div>
+<% end %>
+
+
+
