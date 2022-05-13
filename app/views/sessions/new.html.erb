@@ -1,4 +1,6 @@
-<h1>ログイン</h1>
+<% provide(:title, "ユーザーログイン") %>
+
+<p class="lead"><%= yield(:title) %></p>
 
 <% if @error_message %>
   <p class="text-danger"><%= @error_message %></p>

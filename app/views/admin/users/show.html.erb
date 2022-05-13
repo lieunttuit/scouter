@@ -1,4 +1,6 @@
-<p class="lead"><%= @user.name %><small>さんのページ</small></p>
+<% provide(:title, "#{@user.name}さんのページ") %>
+
+<p class="lead"><%= yield(:title) %></p>
 <div class="d-flex justify-content-center">
   <div class="col-sm-5">
     <div class="card mb-3">
@@ -8,13 +10,12 @@
         <%=image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
       <% end %>
       <div class="card-body">
-        <p class="card-text"><%= User.human_attribute_name(:hobby) %>：<%= @user.hobby %></p>
-        <p class="card-text"><%= User.human_attribute_name(:character) %>：<%= @user.character %></p>
-        <%# 5ポイントブロック %>
-        <p class="card-text"><%= User.human_attribute_name(:email) %>：<%= @user.email %></p>
-        <p class="card-text"><%= User.human_attribute_name(:sex) %>：<%= set_sex(@user) %></p>
-        <p class="card-text"><%= User.human_attribute_name(:generation) %>：<%= set_generation(@user) %></p>
-        <p class="card-text text-info font-weight-bold"><%= User.human_attribute_name(:point) %>：<span class="display-3"><%= @user.point %></span> pts</p>
+        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:hobby) %>：</span><%= @user.hobby %></p>
+        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:character) %>：</span><%= @user.character %></p>
+        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:email) %>：</span><%= @user.email %></p>
+        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:sex) %>：</span><%= set_sex(@user) %></p>
+        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:generation) %>：</span><%= set_generation(@user) %></p>
+        <p class="card-text text-info font-weight-bold"><%= User.human_attribute_name(:point) %>：</span><span class="display-3"><%= @user.point %></span> pts</p>
       </div>
     </div>
   </div>
@@ -25,7 +26,7 @@
 
 <%# プロフの編集・削除 %>
 <div class="text-center">
-  <%= link_to '編集する', edit_admin_user_path, class: "btn btn-info text-white mr-3" %>
+  <%= link_to 'プロフィール編集', edit_admin_user_path, class: "btn btn-info text-white mb-3" %><br />
   <%= link_to "削除", @user, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？"}, class: "btn btn-danger text-white" %>
 </div>
 

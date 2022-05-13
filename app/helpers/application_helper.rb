@@ -9,17 +9,17 @@ module ApplicationHelper
 
   def set_generation(user)
     if user.generation == 0
-      "10代★"
+      "10代"
     elsif user.generation == 1
-      "20代★★"
+      "20代"
     elsif user.generation == 2
-      "30代★★★"
+      "30代"
     elsif user.generation == 3
-      "40代★★★★"
+      "40代"
     elsif user.generation == 4
-      "50代★★★★★"
+      "50代"
     else
-      "60代以上★★★★★★"
+      "60代以上"
     end
   end
 

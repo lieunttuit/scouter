@@ -1,4 +1,6 @@
-<p class="lead"><%= @user.name %><small>さん</small></p>
+<% provide(:title, "#{@user.name}さんのページ") %>
+
+<p class="lead"><%= yield(:title) %></p>
 <div class="d-flex justify-content-center">
   <div class="col-sm-5">
     <div class="card mb-3">
