@@ -41,6 +41,16 @@
         <th><%= f.label :generation, '世代', class: "text-muted" %></th>
         <td><%= f.select :generation, [['10代', 0], ['20代', 1], ['30代', 2],['40代', 3],['50代', 4],['60代以上', 5]],{}, { id: "generation", class: "form-control" } %></td>
       </tr>
+      <tr>
+        <th><%= f.label :admin, '管理者権限', class: "text-muted" %></th>
+        <td>
+            <%= f.check_box :admin, class: "form-control" %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :point, '所持ポイント', class: "text-muted" %></th>
+        <td><%= f.text_field :point, class: "form-control" %></td>
+      </tr>
     </tbody>
   </table> 
 

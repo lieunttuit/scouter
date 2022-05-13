@@ -1,0 +1,31 @@
+<p class="lead"><%= @user.name %><small>さんのページ</small></p>
+<div class="d-flex justify-content-center">
+  <div class="col-sm-5">
+    <div class="card mb-3">
+      <%if @user.id == current_user.id %>
+        <%=image_tag mypage_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+      <% else %>
+        <%=image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+      <% end %>
+      <div class="card-body">
+        <p class="card-text"><%= User.human_attribute_name(:hobby) %>：<%= @user.hobby %></p>
+        <p class="card-text"><%= User.human_attribute_name(:character) %>：<%= @user.character %></p>
+        <%# 5ポイントブロック %>
+        <p class="card-text"><%= User.human_attribute_name(:email) %>：<%= @user.email %></p>
+        <p class="card-text"><%= User.human_attribute_name(:sex) %>：<%= set_sex(@user) %></p>
+        <p class="card-text"><%= User.human_attribute_name(:generation) %>：<%= set_generation(@user) %></p>
+        <p class="card-text text-info font-weight-bold"><%= User.human_attribute_name(:point) %>：<span class="display-3"><%= @user.point %></span> pts</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# 印象ブロック %>
+<%= render "impression" %>
+
+<%# プロフの編集・削除 %>
+<div class="text-center">
+  <%= link_to '編集する', edit_admin_user_path, class: "btn btn-info text-white mr-3" %>
+  <%= link_to "削除", @user, method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？"}, class: "btn btn-danger text-white" %>
+</div>
+
