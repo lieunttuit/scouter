@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     post :details
   end
   
-  resources :evaluations, only: [:new, :create, :destroy]
+  resources :evaluations, only: [:index, :new, :create, :destroy]
 end

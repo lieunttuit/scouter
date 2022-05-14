@@ -1,14 +1,15 @@
 <h3 class="my-5">- <%= @user.name %>さんの印象は？ -</h3>
 
 <p class="lead">Total</p>
-<div class="display-3">
-79
+<div class="display-3 text-danger">
+  <%= impression_total %>
 </div><small>/100</small>
 
 <h3 class="my-4">- 世代別支持率 -</h3>
-<p class="lead">10代：55</p>
-<p class="lead">20代：43</p>
-<p class="lead">30代：76</p>
-<p class="lead">40代：98</p>
-<p class="lead">50代：32</p>
-<p class="lead">60代以上：まだ評価がありません。</p>
+<p class="lead">10代：<span class="text-info"><%= impression_each_generation(0) %></span></p>
+<p class="lead">20代：<span class="text-info"><%= impression_each_generation(1) %></span></p>
+<p class="lead">30代：<span class="text-info"><%= impression_each_generation(2) %></span></p>
+<p class="lead">40代：<span class="text-info"><%= impression_each_generation(3) %></span></p>
+<p class="lead">50代：<span class="text-info"><%= impression_each_generation(4) %></span></p>
+<p class="lead">60代以上：<span class="text-info"><%= impression_each_generation(5) %></span></p>
+

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  helper_method :lose_point
   skip_before_action :login_required, only: [:index, :new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy, :correct_user]
   before_action :correct_user, only: [:create, :edit, :destroy]
@@ -48,6 +47,9 @@ class UsersController < ApplicationController
 
   def details
     @user = User.find(params[:user_id])
+    
+    
+    @users = User.all
     lose_point
     flash[:notice] = "5ポイント消化。(所持ポイント#{@point})"
   end

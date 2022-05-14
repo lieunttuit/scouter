@@ -23,6 +23,19 @@ module ApplicationHelper
     end
   end
 
+  def impression_each_generation(num)
+    @users = User.where(generation: num)
+    @evaluations = Evaluation.where(evaluatee_id: @user.id)
+    @sum = @evaluations.sum { |hash| hash[:evaluation_point]}
+    @sum == 0? "まだ評価はありません" : @sum * 10 / @evaluations.count
+  end
+
+  def impression_total
+    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user)
+    @sum = @evaluations.sum { |hash| hash[:evaluation_point]}
+    @sum == 0? "評価なし" : @sum * 10 / @evaluations.count
+  end
+
   def user_demo_image
     if current_user.sex == 0
       'figure' + rand(1..6).to_s + '.jpg'

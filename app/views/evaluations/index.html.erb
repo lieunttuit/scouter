@@ -1,0 +1,6 @@
+
+<ul>
+  <% @evaluations.each do |eval| %>
+    <li><%= eval.id %> / <%= eval.evaluation_point %>pts / <%= eval.evaluatee_id %> / <%= eval.user_id %></li>
+  <% end %>
+</ul>
