@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :users do
     post :details
   end
+  
+  resources :evaluations, only: [:new, :create, :destroy]
 end

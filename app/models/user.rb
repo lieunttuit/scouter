@@ -10,5 +10,5 @@ class User < ApplicationRecord
   validates :hobby, length: { maximum: 50 }
 
   has_secure_password
-  # has_many :evaluations, dependent: :destroy
+  has_many :evaluations, dependent: :destroy
 end
