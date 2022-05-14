@@ -45,7 +45,7 @@
 <%# プロフの編集・削除 %>
 <% if current_user.id == @user.id || current_user.admin? %>
   <div class="text-center">
-    <%= link_to '編集する', edit_user_path, class: "btn btn-info text-white mb-3" %><br />
+    <%= link_to 'プロフィール編集', edit_user_path, class: "btn btn-info text-white mb-3" %><br />
     <%= link_to "退会する", @user, method: :delete, data: { confirm: "「#{@user.name}」さん、本当に退会しますか？"}, class: "small text-danger" %>
   </div>
 <% end %>

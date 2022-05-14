@@ -12,7 +12,6 @@
       <div class="card-body">
         <p class="card-text"><%= User.human_attribute_name(:hobby) %>：<%= @user.hobby %></p>
         <p class="card-text"><%= User.human_attribute_name(:character) %>：<%= @user.character %></p>
-        <%# 5ポイントブロック %>
         <p class="card-text"><%= User.human_attribute_name(:email) %>：<%= @user.email %></p>
         <p class="card-text"><%= User.human_attribute_name(:sex) %>：<%= set_sex(@user) %></p>
         <p class="card-text"><%= User.human_attribute_name(:generation) %>：<%= set_generation(@user) %></p>

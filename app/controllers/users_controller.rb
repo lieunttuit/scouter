@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  helper_method :lose_point
   skip_before_action :login_required, only: [:index, :new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy, :correct_user]
   before_action :correct_user, only: [:create, :edit, :destroy]
@@ -47,9 +48,7 @@ class UsersController < ApplicationController
 
   def details
     @user = User.find(params[:user_id])
-    @point = current_user.point
     lose_point
-    current_user.update!(point: @point)
     flash[:notice] = "5ポイント消化。(所持ポイント#{@point})"
   end
 
@@ -66,5 +65,15 @@ class UsersController < ApplicationController
 
   def correct_user
     redirect_to(root_url) unless @user == current_user || current_user.admin?
+  end
+
+  def lose_point
+    @point = current_user.point
+    if @point > 5
+      @point -= 5
+    else
+      @point = 0
+    end
+    current_user.update!(point: @point)
   end
 end

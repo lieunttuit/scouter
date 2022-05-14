@@ -38,18 +38,4 @@ module ApplicationHelper
       'figure' + rand(1..6).to_s + '.jpg'
     end
   end
-
-  def gain_point
-    current_user.point += 1
-    current_user.update(point_param)
-    flash[:notice] = "1ポイント獲得。(所持ポイント#{current_user.point})"
-  end
-
-  def lose_point
-    if current_user.point > 5
-      current_user.point -= 5
-    else
-      current_user.point = 0
-    end
-  end
 end

@@ -2,7 +2,8 @@
 
 <div class="continput">
   <%= form_with model: @evaluation, class: "mx-3", local: false do |f| %>
-    <%= f.hidden_field :evaluatee_id, value: @id.to_i %>
+    <%= f.hidden_field :evaluatee_id, value: @id %> 
+    <%= f.hidden_field :user_id, value: current_user.id %> 
     <ul>
       <li>
         <%= f.radio_button :evaluation_point, '1' %>
@@ -13,55 +14,55 @@
       <li>
         <%= f.radio_button :evaluation_point, '2' %>
         <%= f.label :evaluation_point, 
-          current_user.sex ==0?'L2：まずは自分磨きを毎日ね。':'L2：まずは毎日修行。話はそれから', value: 2 %>
+          current_user.sex ==0?'L2：まずは自分磨きね。':'L2：まずは自分磨きをしよう。', value: 2 %>
         <%= render "bullet" %>
       </li>
       <li>
         <%= f.radio_button :evaluation_point, '3' %>
         <%= f.label :evaluation_point, 
-          current_user.sex ==0?'L3：まだ自分が見えてないわ。':'L3：まだまだ修行が足りん', value: 3 %>
+          current_user.sex ==0?'L3：まだ自分が見えてない。':'L3：自分が見えてないと思う', value: 3 %>
         <%= render "bullet" %>
       </li>
       <li>
         <%= f.radio_button :evaluation_point, '4' %>
         <%= f.label :evaluation_point, 
-          current_user.sex==0?'L4：わたしには少し実力不足ね。':'L4：オレのテキではない', value: 4 %>
+          current_user.sex==0?'L4：少し実力不足。':'L4：イマイチかな。', value: 4 %>
         <%= render "bullet" %>
       </li>
       <li>
         <%= f.radio_button :evaluation_point, '5', checked: true %>
         <%= f.label :evaluation_point, 
-          current_user.sex ==0?'L5：まぁまぁじゃない。':'L5：まぁまぁだな', value: 5%>
+          current_user.sex ==0?'L5：まぁまぁ。':'L5：まぁまぁかな', value: 5%>
         <%= render "bullet" %>
       </li>
       <li>
         <%= f.radio_button :evaluation_point, '6' %>
         <%= f.label :evaluation_point, 
-          current_user.sex==0?'L6：ちょっとはやるわね。':'L6：少しはやるな', value: 6 %>
+          current_user.sex==0?'L6：やるわね。':'L6：やるな。', value: 6 %>
         <%= render "bullet" %>
       </li>
       <li>
         <%= f.radio_button :evaluation_point, '7' %>
         <%= f.label :evaluation_point, 
-          current_user.sex ==0?'L7：え？いいじゃん！':'L7：ほうまだこんなヤツがいたとは', value: 7 %>
+          current_user.sex ==0?'L7：タイプ！':'L7：ストライク！', value: 7 %>
         <%= render "bullet" %>
       </li>
       <li>
         <%= f.radio_button :evaluation_point, '8' %>
         <%= f.label :evaluation_point, 
-          current_user.sex==0?'L8：マジでイケてるよ！':'L8：むむっ、強敵だな', value: 8 %>
+          current_user.sex==0?'L8：イケてる！！':'L8：文句なし！！', value: 8 %>
         <%= render "bullet" %>
       </li>
       <li>
         <%= f.radio_button :evaluation_point, '9' %>
         <%= f.label :evaluation_point, 
-          current_user.sex==0?'L9：ヤバすぎ！秒で落とされそう。。':'L9：まさかこのオレ様が震えているだと。。。？！', value: 9 %>
+          current_user.sex==0?'L9：ドキドキする！！！':'L9：ヤバすぎ！！！', value: 9 %>
         <%= render "bullet" %>
       </li>
       <li>
         <%= f.radio_button :evaluation_point, '10' %>
         <%= f.label :evaluation_point, 
-          current_user.sex==0?'L10：カッコいいが渋滞してる！！！':'L10：バカな、スカウターで測定不能できん！', value: 10 %>
+          current_user.sex==0?'L10：カッコいいが渋滞してる！':'L10：かわいいが渋滞してる！', value: 10 %>
         <%= render "bullet" %>
       </li>
     </ul>

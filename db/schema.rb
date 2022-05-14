@@ -10,18 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_14_055347) do
+ActiveRecord::Schema.define(version: 2022_05_14_090805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "evaluations", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "evaluatee_id", null: false
     t.integer "evaluation_point"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["evaluatee_id"], name: "index_evaluations_on_evaluatee_id"
+    t.integer "evaluatee_id"
     t.index ["user_id"], name: "index_evaluations_on_user_id"
   end
 
@@ -41,5 +40,4 @@ ActiveRecord::Schema.define(version: 2022_05_14_055347) do
   end
 
   add_foreign_key "evaluations", "users"
-  add_foreign_key "evaluations", "users", column: "evaluatee_id"
 end
