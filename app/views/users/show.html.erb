@@ -30,8 +30,8 @@
 <%# 5ポイント以上でプロフチェック %>
 <% if current_user.point >= 5 && @user.id != current_user.id %>
   <div class="mt-4">
-    <small class="text-danger">5ポイント消化してこの人の評価がのぞけます！</small>
-    <%= link_to 'いますぐチェック！', user_details_path(@user), value: params[:id], method: :post, class: "btn btn-warning btn-lg text-white mb-45" %>
+    <small class="text-danger">5ポイント消化してこの人の評価がのぞけます！</small><br />
+    <%= link_to 'いますぐチェック！', user_details_path(user_id: @user.id), method: :post, class: "btn btn-warning btn-lg text-white mb-45" %>
   </div>
 <% end %>
 <%# 印象ブロック %>

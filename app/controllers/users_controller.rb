@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   def index
     if current_user
       @users = if current_user.sex == 0
-        User.where(sex: 1).order("RANDOM()").paginate(page: params[:page], per_page: 8)
+                 User.where(sex: 1).order('RANDOM()').paginate(page: params[:page], per_page: 8)
                else
-        User.where(sex: 0).order("RANDOM()").paginate(page: params[:page], per_page: 8)
+                 User.where(sex: 0).order('RANDOM()').paginate(page: params[:page], per_page: 8)
                end
     end
   end
@@ -45,42 +45,46 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: "ユーザー「#{@user.name}」を削除しました。"
   end
 
-  def details 
+  def details
     @user = User.find(params[:user_id])
     @point = current_user.point
+    # byebug
+
     lose_point
-    current_user.update!(point: @point, password: current_user.password, password_confirmation: current_user.password_confirmation)
-    flash[:notice] = "5ポイント消化。(所持ポイント#{current_user.point})"
+    current_user.update!(point: @point)
+    flash[:notice] = "5ポイント消化。(所持ポイント#{@point})"
   end
 
   private
-    def user_params
-      params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation, :sex, :character, :hobby, :generation, :point)
-    end
 
-    def point_param
-      params.require(:user).permit(:point)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation, :sex, :character, :hobby,
+                                 :generation, :point)
+  end
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def point_param
+    params.require(:user).permit(:point)
+  end
 
-    def correct_user
-      redirect_to(root_url) unless @user == current_user || current_user.admin?
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def gain_point
-      current_user.point += 1
-      current_user.update(point_param)
-      flash[:notice] = "1ポイント獲得。(所持ポイント#{current_user.point})"
+  def correct_user
+    redirect_to(root_url) unless @user == current_user || current_user.admin?
+  end
+
+  def gain_point
+    current_user.point += 1
+    current_user.update(point_param)
+    flash[:notice] = "1ポイント獲得。(所持ポイント#{current_user.point})"
+  end
+
+  def lose_point
+    if @point > 5
+      @point -= 5
+    else
+      @point = 0
     end
-  
-    def lose_point
-      if @point > 5
-        @point -= 5
-      else
-        @point = 0
-      end
-    end
+  end
 end
