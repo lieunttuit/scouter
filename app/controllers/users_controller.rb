@@ -47,9 +47,6 @@ class UsersController < ApplicationController
 
   def details
     @user = User.find(params[:user_id])
-    
-    
-    @users = User.all
     lose_point
     flash[:notice] = "5ポイント消化。(所持ポイント#{@point})"
   end
