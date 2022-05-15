@@ -11,4 +11,5 @@ class User < ApplicationRecord
 
   has_secure_password
   has_many :evaluations, dependent: :destroy
+  has_one_attached :image
 end

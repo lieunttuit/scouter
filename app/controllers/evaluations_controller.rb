@@ -17,7 +17,7 @@ class EvaluationsController < ApplicationController
     @evaluation = current_user.evaluations.new(evaluation_params)
 
     if @evaluation.save!
-      gain_point     
+      gain_point
       redirect_to users_path, notice: "評価(#{@evaluation.evaluation_point}/10)をして1ポイント獲得しました。"
     else
       render :new
@@ -29,7 +29,8 @@ class EvaluationsController < ApplicationController
     redirect_to users_url
   end
 
-private
+  private
+
   def evaluation_params
     params.require(:evaluation).permit(:user_id, :evaluatee_id, :evaluation_point)
   end
@@ -44,5 +45,3 @@ private
     current_user.update!(point: @point)
   end
 end
-
-    

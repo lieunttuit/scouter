@@ -20,6 +20,7 @@ ja:
         character: 性格
         hobby: 趣味
         generation: 世代
+        image: トップ画像
         point: 所持ポイント
         created_at: 登録日
         updated_at: 更新日

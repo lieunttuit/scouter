@@ -41,6 +41,10 @@
         <th><%= f.label :generation, '世代', class: "text-muted" %></th>
         <td><%= f.select :generation, [['10代', 0], ['20代', 1], ['30代', 2],['40代', 3],['50代', 4],['60代以上', 5]],{}, { id: "generation", class: "form-control" } %></td>
       </tr>
+      <tr>
+        <th><%= f.label :image, 'トップ画像', class: "text-muted" %></th>
+        <td><%= f.file_field :image, class: "form-control" %></td>
+      </tr>
     </tbody>
   </table> 
 
