@@ -30,7 +30,11 @@
     <% @users.each do |user| %>
     <div class="col-sm-3">
       <div class="card mb-3">
-        <%= image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+        <% if user.image.attached? %>
+          <%= image_tag user.image, class: 'card-img-top', alt: 'Card image cap' %>
+        <% else %>
+          <%= image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= user.name %></h5>
           <%= link_to "プロフィール", user_path(user), class: "btn btn-border" %>

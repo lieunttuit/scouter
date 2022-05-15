@@ -6,9 +6,12 @@
     <%= link_to '新スカウター作成', new_admin_user_path, class: 'btn btn-warning font-weight-bold my-3 btn-lg text-white' %>
 </div>
 
+<%= render "shared/paginate" %> 
+
 <table class="table table-hover shadow-sm my-3">
     <thead class="thead-default">
         <tr class="text-center">
+            <th><%= User.human_attribute_name(:image) %></th>
             <th><%= User.human_attribute_name(:name) %></th>
             <th><%= User.human_attribute_name(:sex) %></th>
             <th><%= User.human_attribute_name(:generation) %></th>
@@ -20,16 +23,23 @@
     <tbody>
     <% @users.each do |user| %>
         <tr>
-          <td><%= user.name %></td>
-          <td><%= set_sex(user) %></td>
-          <td><%=  set_generation(user) %></td>
-          <td><%= user.point %></td>
-          <td class="text-center font-weight-bold"><%= user.admin? ? '有' : '無' %></td>
-          <td>
-              <%= link_to "詳細", admin_user_path(user), class: "btn btn-info text-white" %>
-              <%= link_to "編集", edit_admin_user_path(user), class: "btn btn-secondary text-white" %>
-              <%= link_to "削除", admin_user_path(user), method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？"}, class: "btn btn-danger text-white" %>
-          </td>
+            <td>
+            <% if user.image.attached? %>
+                <%= image_tag user.image, height:50   %>
+            <% else %>
+                <%=image_tag "default_profile_img.png", height:50 %>
+            <% end %>
+            </td>
+            <td><%= user.name %></td>
+            <td><%= set_sex(user) %></td>
+            <td><%=  set_generation(user) %></td>
+            <td><%= user.point %></td>
+            <td class="text-center font-weight-bold"><%= user.admin? ? '有' : '無' %></td>
+            <td>
+                <%= link_to "詳細", admin_user_path(user), class: "btn btn-info text-white" %>
+                <%= link_to "編集", edit_admin_user_path(user), class: "btn btn-secondary text-white" %>
+                <%= link_to "削除", admin_user_path(user), method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？"}, class: "btn btn-danger text-white" %>
+            </td>
         </tr>
     <% end %>    
     </tbody>

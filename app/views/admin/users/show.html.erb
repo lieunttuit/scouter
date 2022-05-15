@@ -4,10 +4,14 @@
 <div class="d-flex justify-content-center">
   <div class="col-sm-5">
     <div class="card mb-3">
-      <%if @user.id == current_user.id %>
-        <%=image_tag mypage_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+      <% if @user.image.attached? %>
+        <%= image_tag @user.image, class: 'card-img-top', alt: 'Card image cap' %>
       <% else %>
-        <%=image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+        <%if @user.id == current_user.id %>
+          <%=image_tag mypage_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+        <% else %>
+          <%=image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
+        <% end %>
       <% end %>
       <div class="card-body">
         <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:hobby) %>：</span><%= @user.hobby %></p>
