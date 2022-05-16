@@ -5,12 +5,74 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
 @import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
-.logo {
-  font-family: 'Poiret One', cursive;
-  padding-left: 10px;
-  // font-weight: 900;
+body {
+  padding-top: 70px;
 }
 
+.logo {
+  position: absolute;
+  font-family: 'Poiret One', cursive;
+  padding-left: 10px;
+  font-size: 230px;
+  color: #000;
+}
+/*メインビジュアル*/
+
+.jumbotron {
+  margin-top: -23px;
+  background: image-url('main_visual.jpg');
+  background-repeat: no-repeat;
+  margin-left: -100px;
+  margin-right: -100px;
+  height: 630px;
+}
+
+.jumbotron.main-visual {
+  height: 590px;
+  padding-top: 40px;
+  background-size: cover;
+
+  h1 {
+    margin-top: 80px;
+    font-size: 85px;
+    text-align: right;
+    text-shadow: 2px 2px 2px #fff
+  }
+  h2 {
+    margin-top: 50px;
+    text-align: right;
+    text-shadow: 2px 2px 2px #fff
+  }
+}
+
+.logo-main-visual {
+  font-family: 'Poiret One', cursive;
+  font-size: 200px;
+  color: #fff;
+  margin-top: -40px;
+  margin-bottom: -50px;
+  padding-right: 20px;
+  text-align: right;
+  text-shadow: 1px 2px 2px #808080
+}
+
+/* bootstrap用修正 */
+
+// .navbar {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   z-index: 100;
+//   border-bottom: 1px solid #999;
+//   /* background-color: $main-color;; */
+// }
+
+// .navbar ul li {
+//   padding-right: 10px;
+// }
+
+/*評価ページ*/
 .continput {
   margin: auto;
   width: 100%;
@@ -456,3 +518,61 @@ a.btn-border:hover:after {
   width: 0;
 }
 
+
+
+/* メディアクエリ適用寺 */
+
+@media screen and (max-width: 767px) {
+  .jumbotron.main-visual {
+    height: 400px;
+    h1 {
+      font-size: 60px;
+    }
+    h2 {
+      font-size: 25px;
+    }
+  }
+
+  .logo-main-visual {
+    font-size: 100px;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .jumbotron.main-visual {
+
+    h1 {
+      font-size: 40px;
+      text-align: center;
+    }
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .logo-main-visual {
+    font-size: 150px;
+    text-align: center;
+  }
+  
+}
+
+@media screen and (max-width: 414px) {
+  .jumbotron.main-visual {
+
+    h1 {
+      font-size: 33px;
+
+    }
+    h2 {
+      font-size: 20px;
+
+    }
+  }
+
+  .logo-main-visual {
+    font-size: 120px;
+    padding-top: 30px;
+  }
+  
+}

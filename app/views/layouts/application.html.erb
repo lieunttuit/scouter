@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 
-  <body style="padding-top: 5rem">
+  <body>
     <%= render "shared/nav" %>
     <div class="container text-center mb-4">
       <% if current_user %>
@@ -13,7 +13,7 @@
       <% end %>
       <%= yield %>
 
-      <%#= render "shared/footer" %>
+      <%= render "shared/footer" %>
     </div>
     
 
