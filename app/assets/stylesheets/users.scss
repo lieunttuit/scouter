@@ -576,3 +576,34 @@ a.btn-border:hover:after {
   }
   
 }
+
+.arrow_box{
+  position:relative;
+  width:300px;
+  height:80px;
+  background:#f3adcf;
+  padding:10px;
+  text-align:center;
+  color:#FFFFFF;
+  border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+}
+.arrow_box:after{
+  border: solid transparent;
+  content:'';
+  height:0;
+  width:0;
+  pointer-events:none;
+  position:absolute;
+  border-color: rgba(255, 195, 128, 0);
+  border-top-width:10px;
+  border-bottom-width:10px;
+  border-left-width:10px;
+  border-right-width:10px;
+  margin-left: -10px;
+  border-top-color:#f3adcf;
+  top:100%;
+  left:50%;
+}
+

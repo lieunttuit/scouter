@@ -24,6 +24,14 @@
     </div>
   </div>
 </div>
+<%# サブ画像ブロック %>
+<% if @user.sub_image_1.attached? %>
+  <p class="lead my-3">- その他画像 -</p>
+  <%= image_tag @user.sub_image_1.variant(resize: "300x300"), class: 'mb-3 rounded border' %>
+<% end %>
+<% if @user.sub_image_2.attached? %>
+  <%= image_tag @user.sub_image_2.variant(resize: "300x300"), class: 'mb-3 rounded border' %>
+<% end %>
 
 <%# 印象ブロック %>
 <%= render "impression" %>

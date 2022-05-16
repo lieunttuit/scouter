@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to @user, notice: "ユーザー「#{@user.name}」を登録しました。"
+      redirect_to @user, notice: "「#{@user.name}」さんを新規登録しました。"
     else
       render :new
     end
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to users_url, notice: "ユーザー「#{@user.name}」を更新しました。"
+      redirect_to users_url, notice: "「#{@user.name}」さんはプロフィールを更新しました。"
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_url, notice: "ユーザー「#{@user.name}」を削除しました。"
+    redirect_to users_url, notice: "「#{@user.name}」さんは退会しました。"
   end
 
   def details
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation, :sex, :character, :hobby,
-                                 :generation, :point, :image)
+                                 :generation, :point, :image, :sub_image_1, :sub_image_2)
   end
 
   def set_user
