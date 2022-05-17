@@ -14,11 +14,11 @@
     <thead class="thead-default">
         <tr class="text-center">
             <th><%= User.human_attribute_name(:image) %></th>
-            <th><%= User.human_attribute_name(:name) %></th>
-            <th><%= User.human_attribute_name(:sex) %></th>
-            <th><%= User.human_attribute_name(:generation) %></th>
-            <th><%= User.human_attribute_name(:point) %></th>
-            <th><%= User.human_attribute_name(:admin) %></th>
+            <th><%= sort_link(@q, :name, [:name, "updated_at desc"]) %></th>
+            <th><%= sort_link(@q, :sex, [:sex, "updated_at desc"]) %></th>
+            <th><%= sort_link(@q, :generation, [:generation, "updated_at desc"]) %></th>
+            <th><%= sort_link(@q, :point) %></th>
+            <th><%= sort_link(@q, :admin, default_order: :asc) %></th>
             <th>操作</th>
         </tr>
     </thead>
