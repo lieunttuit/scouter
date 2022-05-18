@@ -2,7 +2,7 @@
 
 <i class="fa-solid fa-arrow-down-short-wide fa-3x text-info my-3"></i>
 
-<div class="continput">
+<div class="impression-body">
   <%= form_with model: @evaluation, class: "mx-3", local: false do |f| %>
     <%= f.hidden_field :evaluatee_id, value: @id %> 
     <%= f.hidden_field :user_id, value: current_user.id %> 
@@ -10,7 +10,7 @@
       <li>
         <%= f.radio_button :evaluation_point, '1' %>
         <%= f.label :evaluation_point, 
-          current_user.sex ==0?'L1：修行編エピソード１から出直してきたら？':'L1：修行編エピソード１から出直せ', value: 1 %>
+          current_user.sex ==0?'L1：あきらめないで。':'L1：修行編エピソード１的な。', value: 1 %>
         <%= render "bullet" %>
       </li>
       <li>
@@ -22,7 +22,7 @@
       <li>
         <%= f.radio_button :evaluation_point, '3' %>
         <%= f.label :evaluation_point, 
-          current_user.sex ==0?'L3：まだ自分が見えてない。':'L3：自分が見えてないと思う', value: 3 %>
+          current_user.sex ==0?'L3：まだ自分が見えてない。':'L3：自分が見えてないと思う。', value: 3 %>
         <%= render "bullet" %>
       </li>
       <li>
@@ -34,7 +34,7 @@
       <li>
         <%= f.radio_button :evaluation_point, '5', checked: true %>
         <%= f.label :evaluation_point, 
-          current_user.sex ==0?'L5：まぁまぁ。':'L5：まぁまぁかな', value: 5%>
+          current_user.sex ==0?'L5：まぁまぁ。':'L5：まぁまぁかな。', value: 5%>
         <%= render "bullet" %>
       </li>
       <li>

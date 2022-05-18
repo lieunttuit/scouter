@@ -35,6 +35,70 @@ module ApplicationHelper
     @sum == 0 ? '評価なし' : @sum * 10 / @evaluations.count
   end
 
+  def impression_comment
+    if @sum >= 90
+      if @user.sex == 0
+        'かわいいが渋滞してる！'
+      else
+        'カッコいいが渋滞してる！'
+      end
+    elsif @sum >= 80
+      if @user.sex == 0
+        'ヤバすぎ！！！'
+      else
+        'ドキドキする！！！'
+      end
+    elsif @sum >= 70
+      if @user.sex == 0
+        '文句なし！！'
+      else
+        'イケてる！！'
+      end
+    elsif @sum >= 60
+      if @user.sex == 0
+        'ストライク！'
+      else
+        'タイプ！'
+      end
+    elsif @sum >= 50
+      if @user.sex == 0
+        'やるな。'
+      else
+        'やるわね。'
+      end
+    elsif @sum >= 40
+      if @user.sex == 0
+        'まぁまぁかな。'
+      else
+        'まぁまぁ。'
+      end
+    elsif @sum >= 30
+      if @user.sex == 0
+        'イマイチかな。'
+      else
+        '少し実力不足。'
+      end
+    elsif @sum >= 20
+      if @user.sex == 0
+        '自分が見えてないと思う。'
+      else
+        'まだ自分が見えてない。'
+      end
+    elsif @sum >= 10
+      if @user.sex == 0
+        'ずは自分磨きをしよう。'
+      else
+        'まずは自分磨きね。'
+      end
+    else
+      if @user.sex == 0
+        '修行編エピソード１的な。'
+      else
+        'あきめないで。'
+      end
+    end
+  end
+
   def user_demo_image
     if current_user.sex == 0
       'figure' + rand(1..6).to_s + '.jpg'
