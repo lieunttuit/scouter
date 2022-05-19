@@ -1,7 +1,9 @@
-<i class="fa-solid fa-chart-simple fa-3x text-danger"></i>
-<h3 class="my-4 text-danger">- <%= @user.name %>さんの印象は？ -</h3>
+<p>
+  <i class="fa-solid fa-chart-simple fa-3x mt-5 text-danger"></i>
+</p>
+<h3 class="text-danger mb-4">- <%= @user.name %>さんの印象は？ -</h3>
 
-<div class="py-3 mt-3 bg-lightred">
+<div class="bg-lightred py-3">
   <p class="lead">Total</p>
   <div class="display-3 text-danger">
     <%= impression_total %>
@@ -10,9 +12,11 @@
   <p class="mt-2 lead text-secondary">（<%= @evaluations.count %>人に評価されました！）</p>
 </div>
 
-<i class="fa-solid fa-user-group fa-3x text-info my-4"></i>
-<h3 class="my-4 py-3 text-info">- 世代別支持率 -</h3>
-<div class="py-3 mt-3 bg-lightblue">
+<p>
+  <i class="fa-solid fa-user-group fa-3x  mt-5 text-info"></i>
+</p>
+<h3 class="text-info py-3">- 世代別支持率 -</h3>
+<div class="bg-lightblue py-3">
   <p class="lead">10代：<span class="text-info"><%= impression_each_generation(0) %></span></p>
   <p class="lead">20代：<span class="text-info"><%= impression_each_generation(1) %></span></p>
   <p class="lead">30代：<span class="text-info"><%= impression_each_generation(2) %></span></p>

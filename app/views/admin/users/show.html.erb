@@ -38,7 +38,9 @@
 
 <%# プロフの編集・削除 %>
 <div class="text-center">
-  <%= link_to 'プロフィール編集', edit_admin_user_path, class: "btn btn-info text-white mb-3" %><br />
-  <%= link_to "削除", admin_user_path(@user), method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？"}, class: "btn btn-danger text-white" %>
+  <%= link_to edit_admin_user_path, class: "btn btn-info rounded-pill text-white mb-3" do %>
+    <i class="fa-solid fa-pen-to-square"></i> プロフィール編集<br />
+  <% end %><br />
+  <%= link_to "退会させる", admin_user_path(@user), method: :delete, data: { confirm: "「#{@user.name}」さんを本当に退会させますか？"}, class: "small text-secondary" %>
 </div>
 
