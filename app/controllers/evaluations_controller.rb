@@ -13,7 +13,6 @@ class EvaluationsController < ApplicationController
 
   def create
     @user = User.find_by(id: @id)
-    # @evaluation = Evaluation.new(evaluation_params.merge(user_id: current_user.id, evaluatee_id:@user.id))
     @evaluation = current_user.evaluations.new(evaluation_params)
 
     if @evaluation.save!

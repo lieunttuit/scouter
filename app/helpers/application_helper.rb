@@ -90,12 +90,10 @@ module ApplicationHelper
       else
         'まずは自分磨きね。'
       end
+    elsif @user.sex == 0
+      '修行編エピソード１的な。'
     else
-      if @user.sex == 0
-        '修行編エピソード１的な。'
-      else
-        'あきめないで。'
-      end
+      'あきめないで。'
     end
   end
 

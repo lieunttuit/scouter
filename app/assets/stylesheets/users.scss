@@ -9,6 +9,14 @@ body {
   padding-top: 70px;
 }
 
+.bg-lightblue {
+  background-color: #def9fc;
+}
+
+.bg-lightred {
+  background-color: #f9e5e5;
+}
+
 .logo {
   position: absolute;
   font-family: 'Poiret One', cursive;
@@ -55,22 +63,6 @@ body {
   text-align: right;
   text-shadow: 1px 2px 2px #808080
 }
-
-/* bootstrap用修正 */
-
-// .navbar {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   z-index: 100;
-//   border-bottom: 1px solid #999;
-//   /* background-color: $main-color;; */
-// }
-
-// .navbar ul li {
-//   padding-right: 10px;
-// }
 
 /*評価ページ*/
 .impression-body {

@@ -56,7 +56,4 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # def correct_user
-  #   redirect_to(root_url) unless @user == current_user || current_user.admin?
-  # end
 end
