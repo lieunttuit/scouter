@@ -2,10 +2,6 @@ class EvaluationsController < ApplicationController
   helper_method :gain_point
   before_action :evaluatee_id, only: [:new, :create, :destroy]
 
-  def index
-    @evaluations = Evaluation.all
-  end
-
   def new
     @user = User.find_by(id: @id)
     @evaluation = Evaluation.new
@@ -21,11 +17,6 @@ class EvaluationsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def destroy
-    @evaluation.destroy
-    redirect_to users_url
   end
 
   private

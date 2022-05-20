@@ -41,6 +41,10 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path, notice: "ユーザー「#{@user.name}」を削除しました。"
   end
 
+  def evaluation
+    @evaluations = Evaluation.all
+  end
+
   private
 
   def require_admin

@@ -7,11 +7,14 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+    get '/evaluation', to: 'users#evaluation'
   end
+
+  
 
   resources :users do
     post :details
   end
   
-  resources :evaluations, only: [:index, :new, :create, :destroy]
+  resources :evaluations, only: [:index, :new, :create]
 end

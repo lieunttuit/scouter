@@ -1,0 +1,24 @@
+<% provide(:title, "評価一覧") %>
+
+<p class="lead"><%= yield(:title) %></p>
+
+<table class="table table-hover shadow-sm my-3">
+    <thead class="thead-default">
+        <tr class="text-center">
+            <th>ID</th>
+            <th>評価点</th>
+            <th>評価した人</th>
+            <th>評価された人</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @evaluations.each do |eval| %>
+        <tr>
+            <td><%= eval.id %></td>
+            <td><%= eval.evaluation_point %>pts</td>
+            <td><%= eval.user_id %></td>
+            <td><%= eval.evaluatee_id %></td>
+        </tr>
+    <% end %>    
+    </tbody>
+</table>
