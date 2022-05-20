@@ -1,39 +1,56 @@
 module ApplicationHelper
   def set_sex(user)
-    if user.sex == 0
-      '女性'
-    else
-      '男性'
-    end
+    user.sex == 0 ? '女性' : '男性'
   end
 
   def set_generation(user)
-    if user.generation == 0
-      '10代'
-    elsif user.generation == 1
-      '20代'
-    elsif user.generation == 2
-      '30代'
-    elsif user.generation == 3
-      '40代'
-    elsif user.generation == 4
-      '50代'
-    else
-      '60代以上'
-    end
+    ary = %w[10代 20代 30代 40代 50代 60代以上]
+    ary[user.generation]
   end
 
-  def impression_each_generation(num)
-    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
+  def sum_impression
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
     @sum == 0 ? 'まだ評価はありません' : @sum * 10 / @evaluations.count
   end
 
+  def impression_each_generation(num)
+    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
+    sum_impression
+  end
+
   def impression_total
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user)
-    @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
-    @sum == 0 ? '評価なし' : @sum * 10 / @evaluations.count
+    sum_impression
   end
+
+  # def impression_comment(sex)
+  #   ary = [
+  #     ['かわいいが渋滞してる！','ヤバすぎ！！！','文句なし！！','ストライク！','やるな。','まぁまぁかな。','イマイチかな。','自分が見えてないと思う。','まずは自分磨きをしよう。','修行編エピソード１的な。'],
+  #     ['カッコいいが渋滞してる！','ドキドキする！！！','イケてる！！','ストライク！','タイプ！','やるわね。','少し実力不足。','まだ自分が見えてない。','まずは自分磨きね。','あきめないで。']
+  #   ]
+  #   case @sum
+  #   when @sum>= 90 then
+  #     ary[@user.sex][0]
+  #   when @sum>= 80 then
+  #     ary[@user.sex][1]
+  #   when @sum>= 70 then
+  #     ary[@user.sex][2]
+  #   when @sum>= 60 then
+  #     ary[@user.sex][3]
+  #   when @sum>= 50 then
+  #     ary[@user.sex][4]
+  #   when @sum>= 40 then
+  #     ary[@user.sex][5]
+  #   when @sum>= 30 then
+  #     ary[@user.sex][6]
+  #   when @sum>= 20 then
+  #     ary[@user.sex][7]
+  #   when @sum>= 10 then
+  #     ary[:@ser.sex][8]
+  #   when @sum>= 0 then
+  #     ary[@user.sex][9]
+  #   end
+  # end
 
   def impression_comment
     if @sum >= 90
@@ -86,7 +103,7 @@ module ApplicationHelper
       end
     elsif @sum >= 10
       if @user.sex == 0
-        'ずは自分磨きをしよう。'
+        'まずは自分磨きをしよう。'
       else
         'まずは自分磨きね。'
       end
