@@ -8,7 +8,7 @@
   <div class="display-3 text-danger">
     <%= impression_total %>
   </div><small>/100</small>
-  <p class="text-danger lead font-weight-bold mt-2"><%= impression_comment %></p>
+  <p class="text-danger lead font-weight-bold mt-2"><%= impression_comment(@user.sex) %></p>
   <p class="mt-2 lead text-secondary">（<%= @evaluations.count %>人に評価されました！）</p>
 </div>
 
