@@ -13,18 +13,20 @@
 <table class="table table-hover shadow-sm my-3">
     <thead class="thead-default">
         <tr class="text-center">
+            <th><%= sort_link(@q, :id, [:id, "created_at desc"], class: "text-info") %></th>
             <th><%= User.human_attribute_name(:image) %></th>
-            <th><%= sort_link(@q, :name, [:name, "updated_at desc"]) %></th>
-            <th><%= sort_link(@q, :sex, [:sex, "updated_at desc"]) %></th>
-            <th><%= sort_link(@q, :generation, [:generation, "updated_at desc"]) %></th>
-            <th><%= sort_link(@q, :point) %></th>
-            <th><%= sort_link(@q, :admin, default_order: :asc) %></th>
+            <th><%= sort_link(@q, :name, [:name, "updated_at desc"], class: "text-info") %></th>
+            <th><%= sort_link(@q, :sex, [:sex, "updated_at desc"], class: "text-info") %></th>
+            <th><%= sort_link(@q, :generation, [:generation, "updated_at desc"], class: "text-info") %></th>
+            <th><%= sort_link(@q, :point, class: "text-info") %></th>
+            <th><%= sort_link(@q, :admin, class: "text-info", default_order: :asc) %></th>
             <th>操作</th>
         </tr>
     </thead>
     <tbody>
     <% @users.each do |user| %>
         <tr>
+            <td><%= user.id %></td>
             <td>
             <% if user.image.attached? %>
                 <%= image_tag user.image, height:50   %>
@@ -38,9 +40,9 @@
             <td><%= user.point %></td>
             <td class="text-center font-weight-bold"><%= user.admin? ? '有' : '無' %></td>
             <td>
-                <%= link_to "詳細", admin_user_path(user), class: "btn btn-info btn-sm rounded-pill text-white" %>
-                <%= link_to "編集", edit_admin_user_path(user), class: "btn btn-secondary btn-sm rounded-pill text-white" %>
-                <%= link_to "削除", admin_user_path(user), method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？"}, class: "btn btn-danger btn-sm rounded-pill text-white" %>
+                <%= link_to "詳細", admin_user_path(user), class: "text-secondary" %>
+                <%= link_to "編集", edit_admin_user_path(user), class: "px-2 text-info" %>
+                <%= link_to "削除", admin_user_path(user), method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？"}, class: "text-danger" %>
             </td>
         </tr>
     <% end %>    
