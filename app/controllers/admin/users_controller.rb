@@ -42,7 +42,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def evaluation
-    @evaluations = Evaluation.all
+    @evaluations = Evaluation.includes(:user)
   end
 
   private
