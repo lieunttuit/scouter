@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-    command: bundle exec puma -C config/puma.rb
+    command: bundle exec puma -C config/puma.rb -e production
 
     volumes:
       - .:/scouter
@@ -12,18 +12,18 @@ services:
       - log-data:/scouter/log
     # networks:
     #   - scouter-network
-    depends_on:
-      - db
+    #   depends_on:
+    #     - db
 
-  db:
-    image: postgres:14.2
-    environment:
-      POSTGRES_ROOT_PASSWORD: password
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DATABASE: scouter_development
-    volumes:
-      - db-data:/var/lib/postgresql/data
+    # db:
+    #   image: postgres:14.2
+    #   environment:
+    #     POSTGRES_ROOT_PASSWORD: password
+    #     POSTGRES_USER: postgres
+    #     POSTGRES_PASSWORD: password
+    #     POSTGRES_DATABASE: scouter_development
+    #   volumes:
+    #     - db-data:/var/lib/postgresql/data
     # networks:
     #   - scouter-network
 

@@ -34,6 +34,7 @@ gem 'rails-i18n'
 gem 'will_paginate', '3.3.1'
 gem 'will_paginate-bootstrap4'
 gem 'ransack'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
