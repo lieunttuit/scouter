@@ -10,8 +10,8 @@ services:
       - public-data:/scouter/public
       - tmp-data:/scouter/tmp
       - log-data:/scouter/log
-    # networks:
-    #   - scouter-network
+    networks:
+      - scouter-network
     #   depends_on:
     #     - db
 
@@ -37,8 +37,8 @@ services:
       - 80:80
     depends_on:
       - app
-    # networks:
-    #   - scouter-network
+    networks:
+      - scouter-network
 
 volumes:
   public-data:
@@ -46,6 +46,7 @@ volumes:
   log-data:
   db-data:
 
-    # networks:
-    #   scouter-network:
-    #     external: true
+
+networks:
+  scouter-network:
+    external: true
