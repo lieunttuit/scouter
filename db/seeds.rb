@@ -203,16 +203,3 @@ User.create!(
   generation: 0,
   point: 100,
 )
-
-User.create!(
-  name: "ゆうちゃん",
-  email: "yuchan@email.com",
-  password: 'pass',
-  password_confirmation: 'pass',
-  admin: false,
-  sex: 0,
-  hobby: "ボクシング",
-  character: "繊細",
-  generation: 3,
-  point: 0,
-)
