@@ -23,12 +23,12 @@ module ApplicationHelper
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
     point = @sum / @evaluations.count
     point = point.round
-    if point == 0
-      ''
-    end
-    for i in 1..point do
-      '❤️'
-    end
+    # if point == 0
+    #   ''
+    # end
+    # for i in 1..point do
+    #   '❤️'
+    # end
   end
 
   def impression_total
