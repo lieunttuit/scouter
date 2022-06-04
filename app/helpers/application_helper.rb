@@ -23,10 +23,10 @@ module ApplicationHelper
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
     point = @sum / @evaluations.count
     point = @point.round
-    if point == 0
-      ''
-    else
-      for i in 1..point do
+    for i in 1..point do
+      if i == 0
+        ''
+      else
         '❤️'
       end
     end
