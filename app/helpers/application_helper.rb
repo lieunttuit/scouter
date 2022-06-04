@@ -21,7 +21,12 @@ module ApplicationHelper
   def heart_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
-    @sum * 10 / @evaluations.count
+    @point = @sum * 10 / @evaluations.count
+    if @point == 0
+      ''
+    else
+      '❤️'
+    end
     # @point.round
     # if point == 0
     #   ''
