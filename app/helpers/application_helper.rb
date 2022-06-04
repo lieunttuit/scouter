@@ -18,6 +18,14 @@ module ApplicationHelper
     sum_impression
   end
 
+  def heart_each_generation(num)
+    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
+    @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
+    point = (@sum / @evaluations.count).round
+    ary = ['','❤️','❤️❤️','❤️❤️❤️','❤️❤️❤️❤️','❤️❤️❤️❤️❤️','❤️❤️❤️❤️❤️❤️','❤️❤️❤️❤️❤️❤️❤️','❤️❤️❤️❤️❤️❤️❤️❤️','❤️❤️❤️❤️❤️❤️❤️❤️❤️','❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️']
+    ary[point] 
+  end
+
   def impression_total
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user)
     sum_impression
