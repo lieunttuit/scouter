@@ -15,12 +15,12 @@ module ApplicationHelper
 
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
-    @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
-    if @sum == 0 
-      'まだ評価はありません' 
-    elsif 
-      '❤️❤️'
-    end
+    sum_impression
+    # if @sum == 0 
+    #   'まだ評価はありません' 
+    # elsif 
+    #   '❤️❤️'
+    # end
     # if @sum == 0 
     #   'まだ評価はありません'
     # elsif @sum <= 10
