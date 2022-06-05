@@ -16,19 +16,31 @@ module ApplicationHelper
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
     sum_impression
-    if @sum == 0 
-      'まだ評価はありません' 
-    else 
+    if @sum == 100 
+      '❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️' 
+    elsif @sum >= 90 
+      '❤️❤️❤️❤️❤️❤️❤️❤️❤️'
+    elsif @sum >= 80 
+      '❤️❤️❤️❤️❤️❤️❤️❤️' 
+    elsif @sum >= 70 
+      '❤️❤️❤️❤️❤️❤️❤️'
+    elsif @sum >= 60 
+      '❤️❤️❤️❤️❤️❤️'
+    elsif @sum >= 50 
+      '❤️❤️❤️❤️❤️'
+    elsif @sum >= 40 
+      '❤️❤️❤️❤️'
+    elsif @sum >= 30 
+      '❤️❤️❤️'
+    elsif @sum >= 20 
       '❤️❤️'
-    end
-    # if @sum == 0 
-    #   'まだ評価はありません'
-    # elsif @sum <= 10
-    #   '❤️'
-    # else
-    #   '❤️❤️'
-    # end
-   
+    elsif @sum >= 10 
+      '❤️'
+    elsif @sum > 0 
+      '💔'
+    else
+      'まだ評価はありません'
+    end  
   end
 
   def impression_total
