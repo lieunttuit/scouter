@@ -16,12 +16,12 @@ module ApplicationHelper
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
     sum_impression
-    @point = @sum.round /10
-    if @point == 0
-      '❤️'
-    else
-      '❤️''❤️'
-    end
+    # @point = @sum.round /10
+    # if @point == 0
+    #   '❤️'
+    # else
+    #   '❤️''❤️'
+    # end
   end
 
   def impression_total
