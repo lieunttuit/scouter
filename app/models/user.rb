@@ -8,15 +8,15 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, on: :create
   validates :character, length: { maximum: 50 }
   validates :hobby, length: { maximum: 50 }
-  validates :image, presence: true,
+  validates :image, 
     content_type: [:png, :jpg, :jpeg],
     size: { less_than_or_equal_to: 3.megabytes },
     dimension: { width: { max: 500 }, height: { max: 500 }}
-  validates :sub_image_1, presence: true,
+  validates :sub_image_1, 
     content_type: [:png, :jpg, :jpeg],
     size: { less_than_or_equal_to: 3.megabytes },
     dimension: { width: { max: 500 }, height: { max: 500 }}
-  validates :sub_image_2, presence: true,
+  validates :sub_image_2,
     content_type: [:png, :jpg, :jpeg],
     size: { less_than_or_equal_to: 3.megabytes },
     dimension: { width: { max: 500 }, height: { max: 500 }}
