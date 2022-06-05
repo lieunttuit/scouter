@@ -19,7 +19,7 @@ module ApplicationHelper
     if @sum == 0 
       'まだ評価はありません' 
     elsif 
-      @sum / @evaluations.count
+      @sum * 10 / @evaluations.count
     end
     # if @sum == 0 
     #   'まだ評価はありません'
