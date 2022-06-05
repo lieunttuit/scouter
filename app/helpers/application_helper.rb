@@ -15,7 +15,7 @@ module ApplicationHelper
 
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
-    sum_impression
+    @sum = @evaluations.sum { |hash| hash[:evaluation_point] } * 10 / @evaluations.count
     if @sum == 100 
       '❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️' 
     elsif @sum >= 90 
