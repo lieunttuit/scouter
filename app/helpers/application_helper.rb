@@ -16,28 +16,27 @@ module ApplicationHelper
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
-    @sum = @sum * 10 / @evaluations.count
-    if @sum == 100 
+    if @sum * 10 / @evaluations.count == 100 
       '❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️' 
-    elsif @sum >= 90 
+    elsif @sum * 10 / @evaluations.count >= 90 
       '❤️❤️❤️❤️❤️❤️❤️❤️❤️'
-    elsif @sum >= 80 
+    elsif @sum * 10 / @evaluations.count >= 80 
       '❤️❤️❤️❤️❤️❤️❤️❤️' 
-    elsif @sum >= 70 
+    elsif @sum * 10 / @evaluations.count >= 70 
       '❤️❤️❤️❤️❤️❤️❤️'
-    elsif @sum >= 60 
+    elsif @sum * 10 / @evaluations.count >= 60 
       '❤️❤️❤️❤️❤️❤️'
-    elsif @sum >= 50 
+    elsif @sum * 10 / @evaluations.count >= 50 
       '❤️❤️❤️❤️❤️'
-    elsif @sum >= 40 
+    elsif @sum * 10 / @evaluations.count >= 40 
       '❤️❤️❤️❤️'
-    elsif @sum >= 30 
+    elsif @sum * 10 / @evaluations.count >= 30 
       '❤️❤️❤️'
-    elsif @sum >= 20 
+    elsif @sum * 10 / @evaluations.count >= 20 
       '❤️❤️'
-    elsif @sum >= 10 
+    elsif @sum * 10 / @evaluations.count >= 10 
       '❤️'
-    elsif @sum > 0 
+    elsif @sum * 10 / @evaluations.count > 0 
       '💔'
     else
       'まだ評価はありません'
