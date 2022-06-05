@@ -16,26 +16,31 @@ module ApplicationHelper
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
     sum_impression
+    @point = @sum.round /10
+    if @point == 0
+      '❤️'
+    else
+      '❤️''❤️'
+    end
   end
 
   def heart_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
     @sum / @evaluations.count
-    puts 'ははは'
-    # if @point == 0
-    #   '❤️'
-    # else
-    #   '❤️''❤️'
-    # end
-    # @point.round
-    # for i in 0..point do
-    #   if i == 0
-    #     ''
-    #   else
-    #     '❤️'
-    #   end
-    # end
+    if @point == 0
+      '❤️'
+    else
+      '❤️''❤️'
+    end
+    @point.round
+    for i in 0..point do
+      if i == 0
+        ''
+      else
+        '❤️'
+      end
+    end
   end
 
   def impression_total
