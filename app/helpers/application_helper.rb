@@ -16,9 +16,10 @@ module ApplicationHelper
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
-    if @sum == 0 
+    @point = @sum * 10 / @evaluations.count
+    if @point == 0 
       'まだ評価はありません' 
-    else
+    elsif 
       @sum * 10 / @evaluations.count
     end
     # if @sum == 0 
