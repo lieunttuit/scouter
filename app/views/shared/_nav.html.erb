@@ -14,6 +14,8 @@
 
       <% elsif @name == "login" %>
   
+        <li class="nav_item"></li>
+        
       <% else %>
         <p><%= link_to login_path(name: "login"), class: 'btn btn-success rounded-pill text-white' do %><i class="fa-solid fa-right-to-bracket lead"></i>　ログイン<% end %></p>
       <% end %>
