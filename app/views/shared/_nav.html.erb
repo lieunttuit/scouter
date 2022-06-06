@@ -12,8 +12,10 @@
 
         <li class="nav_item"><%= link_to logout_path, method: :delete, class: 'nav-link' do %><i class="fa-solid fa-door-open lead"></i><% end %></li>
 
+      <% elsif @name == "login" %>
+  
       <% else %>
-        <p><%= link_to login_path, class: 'btn btn-info rounded-pill text-white' do %><i class="fa-solid fa-right-to-bracket lead"></i>　ログイン<% end %></p>
+        <p><%= link_to login_path(name: "login"), class: 'btn btn-info rounded-pill text-white' do %><i class="fa-solid fa-right-to-bracket lead"></i>　ログイン<% end %></p>
       <% end %>
     </ul>
 </nav>
