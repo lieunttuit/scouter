@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light border-bottom bg-white fixed-top">
-  <%= link_to 'Scouter', users_path, class: 'navbar-brand logo' %>
+  <%= link_to 'Scouter', users_path, class: 'navbar-brand logo py-3' %>
   <ul class="navbar-nav mr-auto mt-2 mt-lg-0 flex-row d-flex justify-content-center">
       <% if current_user %>
         <li class="nav_item"><%= link_to user_path(current_user), class: 'nav-link' do %><i class="fa-solid fa-user lead"></i><% end %></li>
@@ -15,7 +15,7 @@
       <% elsif @name == "login" %>
   
       <% else %>
-        <p><%= link_to login_path(name: "login"), class: 'btn btn-info rounded-pill text-white' do %><i class="fa-solid fa-right-to-bracket lead"></i>　ログイン<% end %></p>
+        <p><%= link_to login_path(name: "login"), class: 'btn btn-success rounded-pill text-white' do %><i class="fa-solid fa-right-to-bracket lead"></i>　ログイン<% end %></p>
       <% end %>
     </ul>
 </nav>
