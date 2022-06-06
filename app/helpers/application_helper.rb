@@ -17,7 +17,7 @@ module ApplicationHelper
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
     sum_impression
 
-    '❤️'
+    echo '❤️'
   end
 
   def impression_total
