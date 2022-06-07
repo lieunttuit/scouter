@@ -10,15 +10,15 @@ class User < ApplicationRecord
   validates :hobby, length: { maximum: 50 }
   validates :image, 
     # presence: true,
-    content_type: [:png, :jpg, :jpeg],
-    size: { less_than_or_equal_to: 3.megabytes }
+    content_type: [:png, :jpg, :jpeg, :heic],
+    size: { less_than_or_equal_to: 5.megabytes }
     # dimension: { width: { max: 500 }, height: { max: 500 }}
   validates :sub_image_1, 
-    content_type: [:png, :jpg, :jpeg],
-    size: { less_than_or_equal_to: 3.megabytes }
+    content_type: [:png, :jpg, :jpeg, :heic],
+    size: { less_than_or_equal_to: 5.megabytes }
   validates :sub_image_2,
-    content_type: [:png, :jpg, :jpeg],
-    size: { less_than_or_equal_to: 3.megabytes }
+    content_type: [:png, :jpg, :jpeg, :heic],
+    size: { less_than_or_equal_to: 5.megabytes }
 
   has_secure_password
   has_many :evaluations, dependent: :destroy
