@@ -15,8 +15,7 @@ module ApplicationHelper
 
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
-    @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
-    @sum == 0 ? 'まだ評価はありません' : @sum * 10 / @evaluations.count
+    sum_impression
   end
 
   def impression_total
@@ -34,6 +33,22 @@ module ApplicationHelper
         ['あきめないで。', 'まずは自分磨きね。', 'まだ自分が見えてない。', '少し実力不足。', 'まずまずね。', 'タイプ！', 'ストライク！', 'イケてる！！', 'ドキドキする！！！', 'カッコいいが渋滞してる！']
       ]
       ary[sex][num]
+    else
+      ''
+    end
+  end
+
+  def impression_graph(num)
+    if impression_each_generation(num) != 'まだ評価はありません'
+      point = impression_each_generation(num) /10
+      point = point.round
+      if point == 100
+        '❤️❤️❤️❤️❤️'
+      elsif point >= 50
+        '❤️❤️'
+      else
+        ''
+      end
     else
       ''
     end
