@@ -47,10 +47,10 @@ module ApplicationHelper
       elsif point >= 50
         '❤️❤️'
       else
-        ''
+        '▲'
       end
     else
-      ''
+      '◆'
     end
   end
 
