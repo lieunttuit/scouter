@@ -30,7 +30,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if params[:user][:sub_image_ids]
-      params[:user][:sub_image_ids].each do |image_id|
+      params[:user][:sub_image_ids].each do |sub_image_id|
         sub_image = @user.sub_images.find(sub_image_id)
         sub_image.purge
       end
