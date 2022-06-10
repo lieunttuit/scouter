@@ -65,8 +65,8 @@
         </td>
       </tr>
       <tr>
-        <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %></th>
-        <td class="d-flex justify-content-start">
+        <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %><br /><span class="small text-danger">(サブ画像は２枚まで選択可)</span></th>
+        <td>
           <%= f.file_field :sub_images, multiple: true, class: "form-control" %>
           <% if user.sub_images.attached? %>
             <div class="d-flex justify-content-start mt-2">
