@@ -70,8 +70,8 @@
             <% @user.sub_images.each do |sub_image| %>
               <%= f.check_box :sub_image_ids, { multiple: true }, sub_image.id, false %>
               <%= image_tag sub_image.variant(resize: "30x30") %>
-              <span class="small">選択されている画像(削除する画像にチェックをつけてください)。</span>
             <% end %>
+            <p class="small">選択されている画像(※削除する画像にチェックをつけてください)。</p>
           <% else %>
             <span class="small">画像がありません。</span>
           <% end %>
