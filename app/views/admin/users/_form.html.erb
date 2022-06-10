@@ -64,7 +64,7 @@
       </tr>
       <tr>
         <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %></th>
-        <td>
+        <td class="d-flex justify-content-start">
           <%= f.file_field :sub_images, multiple: true, class: "form-control" %>
           <% if user.sub_images.attached? %>
             <% @user.sub_images.each do |sub_image| %>
