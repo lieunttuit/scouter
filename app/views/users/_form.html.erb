@@ -46,7 +46,9 @@
         <td>
           <%= f.file_field :image, class: "form-control" %>
           <% if user.image.attached? %>
-            <%= image_tag user.image, height:30 %><span class="small">選択されている画像。</span>
+            <div class="d-flex justify-content-start">
+              <%= image_tag user.image, height:30 %><span class="small">選択されている画像。</span>
+            </div>
           <% else %>
             <span class="small">画像がありません。</span>
           <% end %>
@@ -54,14 +56,16 @@
       </tr>
       <tr>
         <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %></th>
-        <td class="d-flex justify-content-start">
+        <td>
           <%= f.file_field :sub_images, multiple: true, class: "form-control" %>
           <% if user.sub_images.attached? %>
             <% @user.sub_images.each do |sub_image| %>
               <%= f.check_box :sub_image_ids, { multiple: true }, sub_image.id, false %>
               <%= image_tag sub_image.variant(resize: "30x30") %>
             <% end %>
-            <p class="small">選択されている画像(※削除する画像にチェックをつけてください)。</p>
+            <div class="d-flex justify-content-start">
+              <p class="small">選択されている画像(※削除する画像にチェックをつけてください)。</p>
+            </div>
           <% else %>
             <span class="small">画像がありません。</span>
           <% end %>

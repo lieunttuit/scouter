@@ -56,7 +56,9 @@
         <td>
           <%= f.file_field :image, class: "form-control" %>
           <% if user.image.attached? %>
-            <%= image_tag user.image, height:30 %><span class="small">選択されている画像。</span>
+            <div class="d-flex justify-content-start">
+              <%= image_tag user.image, height:30 %><span class="small">選択されている画像。</span>
+            </div>
           <% else %>
             <span class="small">画像がありません。</span>
           <% end %>
@@ -71,7 +73,9 @@
               <%= f.check_box :sub_image_ids, { multiple: true }, sub_image.id, false %>
               <%= image_tag sub_image.variant(resize: "30x30") %>
             <% end %>
-            <p class="small">選択されている画像(※削除する画像にチェックをつけてください)。</p>
+            <div class="d-flex justify-content-start">
+              <p class="small">選択されている画像(※削除する画像にチェックをつけてください)。</p>
+            </div>
           <% else %>
             <span class="small">画像がありません。</span>
           <% end %>
