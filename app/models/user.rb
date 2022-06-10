@@ -17,8 +17,19 @@ class User < ApplicationRecord
     content_type: [:png, :jpg, :jpeg, :heic],
     size: { less_than_or_equal_to: 5.megabytes }
 
+  FILE_NUMBER_LIMIT = 3
+  validate :validate_number_of_sub_images
+
   has_secure_password
   has_many :evaluations, dependent: :destroy
   has_one_attached :image
   has_many_attached :sub_images
+
+  private
+
+  def validate_number_of_sub_images
+    return if sub_images.length <= FILE_NUMBER_LIMIT
+    errors.add(:sub_images, "に添付できる画像は#{FILE_NUMBER_LIMIT}件までです。")
+  end
+
 end
