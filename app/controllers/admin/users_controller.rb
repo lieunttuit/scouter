@@ -29,10 +29,21 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to admin_user_path(@user), notice: "ユーザー「#{@user.name}」を更新しました。"
-    else
-      render :edit
+    if params[:user][:sub_image_ids]
+      params[:user][:sub_image_ids].each do |image_id|
+        sub_image = @user.sub_images.find(sub_image_id)
+        sub_image.purge
+      end
+    end
+
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: "「#{@user.name}」さんはプロフィールを更新しました。" }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -53,7 +64,7 @@ class Admin::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation, :sex, :character, :hobby,
-                                 :generation, :point, :image, :sub_image_1, :sub_image_2)
+                                 :generation, :point, :image, sub_images: [])
   end
 
   def set_user
