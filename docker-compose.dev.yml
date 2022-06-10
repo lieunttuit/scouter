@@ -28,6 +28,8 @@ services:
       - scouter-network
 
   web:
+    stdin_open: true
+    tty: true
     build:
       context: ./nginx_docker_dev
     volumes:
