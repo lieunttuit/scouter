@@ -46,7 +46,7 @@
         <td>
           <%= f.file_field :image, class: "form-control" %>
           <% if user.image.attached? %>
-            <div class="d-flex justify-content-start">
+            <div class="d-flex justify-content-start mt-2">
               <%= image_tag user.image.variant(resize: "30x30"), class:'px-2' %><span class="small">選択されている画像。</span>
             </div>
           <% else %>
@@ -59,7 +59,7 @@
         <td>
           <%= f.file_field :sub_images, multiple: true, class: "form-control" %>
           <% if user.sub_images.attached? %>
-            <div class="d-flex justify-content-start">
+            <div class="d-flex justify-content-start mt-2">
               <% @user.sub_images.each do |sub_image| %>
                 <%= f.check_box :sub_image_ids, { multiple: true }, sub_image.id, false %>
                 <%= image_tag sub_image.variant(resize: "30x30"), class:'px-2' %>
