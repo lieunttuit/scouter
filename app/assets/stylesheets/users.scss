@@ -66,12 +66,11 @@ body {
 
 /*ユーザー一覧ページ*/
 .img-list {
-  width: 100px;
-  height: 100px;
+  text-align: center;
   margin : 0 auto;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px #808080;
+  border: 10px #808080;
 }
 
 /*評価ページ*/
