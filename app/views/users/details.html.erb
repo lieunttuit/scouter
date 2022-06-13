@@ -16,7 +16,6 @@
       <div class="card-body">
         <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:hobby) %>：</span><%= @user.hobby %></p>
         <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:character) %>：</span><%= @user.character %></p>
-        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:email) %>：</span><%= @user.email %></p>
         <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:sex) %>：</span><%= set_sex(@user) %></p>
         <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:generation) %>：</span><%= set_generation(@user) %></p>
       </div>
