@@ -85,7 +85,7 @@
 
     <% @users.each do |user| %>
     <div class="col-sm-3">
-      <div class="card border-0 mb-3">
+      <div class="card mb-3">
         <% if user.image.attached? %>
           <%= image_tag user.image, class: 'img-list', alt: 'Card image cap' %>
         <% else %>
