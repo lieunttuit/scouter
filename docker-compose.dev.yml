@@ -4,7 +4,8 @@ services:
     build:
       context: .
     command: bundle exec puma -C config/puma.rb
-
+    # command: bundle exec rails s -b '0.0.0.0'
+    # command: bundle exec puma -e development
     volumes:
       - .:/scouter
       - public-data:/scouter/public
@@ -28,8 +29,6 @@ services:
       - scouter-network
 
   web:
-    stdin_open: true
-    tty: true
     build:
       context: ./nginx_docker_dev
     volumes:
@@ -41,6 +40,8 @@ services:
       - app
     networks:
       - scouter-network
+    stdin_open: true
+    tty: true
 
 volumes:
   public-data:

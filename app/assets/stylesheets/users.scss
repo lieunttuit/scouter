@@ -64,6 +64,14 @@ body {
   text-shadow: 1px 2px 2px #808080
 }
 
+/*ユーザー一覧ページ*/
+.img-list {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 /*評価ページ*/
 .impression-body {
   margin: auto;
