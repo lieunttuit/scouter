@@ -81,22 +81,23 @@
 
   <%= render "shared/paginate" %>
 
-  <div class="row">
-
+  <div class="card-group-x">
     <% @users.each do |user| %>
-    <div class="col-sm-3">
-      <div class="card mb-3">
-        <% if user.image.attached? %>
-          <%= image_tag user.image, class: 'img-list', alt: 'Card image cap' %>
-        <% else %>
-          <%= image_tag user_demo_image, class: 'img-list', alt: 'Card image cap' %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= user.name %></h5>
-          <%= link_to "プロフィール", user_path(user), class: "btn btn-border rounded-pill" %>
+      <div class="card-x">
+        <div class="card__imgframe-x">
+          <% if user.image.attached? %>
+            <%= image_tag user.image, class:'img-list border' %>
+          <% else %>
+            <%= image_tag user_demo_image, class:'img-list border' %>
+          <% end %>
+        </div>
+        <div class="card__textbox-x">
+          <p>
+            <%= user.name %><br />
+            <%= link_to "プロフィール", user_path(user), class: "btn btn-border small" %>
+          </p>
         </div>
       </div>
-    </div>  
     <% end %>
   </div>
 
