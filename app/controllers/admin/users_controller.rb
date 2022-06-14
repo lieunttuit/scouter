@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
 
   def index
     @q = User.all.ransack(params[:q])
-    @users = @q.result(distinct: true).paginate(page: params[:page], per_page: 5)
+    @users = @q.result(distinct: true).order('updated_at DESC').paginate(page: params[:page], per_page: 6)
     @male = User.where(sex: 1)
     @female = User.where(sex: 0)
   end

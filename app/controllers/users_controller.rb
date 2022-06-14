@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   def index
     if current_user
       @users = if current_user.sex == 0
-                 User.where(sex: 1).order('RANDOM()').paginate(page: params[:page], per_page: 6)
+                 User.where(sex: 1).order('updated_at DESC').paginate(page: params[:page], per_page: 6)
                else
-                 User.where(sex: 0).order('RANDOM()').paginate(page: params[:page], per_page: 6)
+                 User.where(sex: 0).order('updated_at DESC').paginate(page: params[:page], per_page: 6)
                end
     end
   end

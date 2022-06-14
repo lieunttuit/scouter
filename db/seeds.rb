@@ -188,7 +188,7 @@ User.create!(
   hobby: "料理",
   character: "受け身",
   generation: 3,
-  point: 100,
+  point: 10000,
 )
 
 User.create!(
@@ -201,5 +201,18 @@ User.create!(
   hobby: "料理",
   character: "受け身",
   generation: 0,
-  point: 100,
+  point: 10000,
+)
+
+User.create!(
+  name: "ゆうちゃん",
+  email: "yuchan@email.com",
+  password: 'pass',
+  password_confirmation: 'pass',
+  admin: false,
+  sex: 0,
+  hobby: "ボクシング",
+  character: "繊細",
+  generation: 2,
+  point: 0,
 )
