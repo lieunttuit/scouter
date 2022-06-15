@@ -1,25 +1,27 @@
 <% provide(:title, "#{@user.name}さんのページ") %>
 
-<p class="lead"><%= yield(:title) %></p>
 <div class="d-flex justify-content-center">
   <div class="col-sm-5">
-    <div class="card mb-3">
-      <% if @user.image.attached? %>
-        <%= image_tag @user.image, class: 'card-img-top', alt: 'Card image cap' %>
+    <div class="card bg-info border border-dark mb-3">
+    <p class="lead text-white pt-3 pm-2"><%= yield(:title) %></p>
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image, class: 'mx-3 border border-dark', alt: 'Card image cap' %>
+    <% else %>
+      <%if @user.id == current_user.id %>
+        <%=image_tag mypage_demo_image, class: 'mx-3 border border-dark', alt: 'Card image cap' %>
       <% else %>
-        <%if @user.id == current_user.id %>
-          <%=image_tag mypage_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
-        <% else %>
-          <%=image_tag user_demo_image, class: 'card-img-top', alt: 'Card image cap' %>
-        <% end %>
+        <%=image_tag user_demo_image, class: 'mx-3 border border-dark', alt: 'Card image cap' %>
       <% end %>
-      <div class="card-body">
-        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:hobby) %>：</span><%= @user.hobby %></p>
-        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:character) %>：</span><%= @user.character %></p>
-        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:email) %>：</span><%= @user.email %></p>
-        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:sex) %>：</span><%= set_sex(@user) %></p>
-        <p class="card-text"><span class="small text-muted"><%= User.human_attribute_name(:generation) %>：</span><%= set_generation(@user) %></p>
-        <p class="card-text text-info font-weight-bold"><%= User.human_attribute_name(:point) %>：</span><span class="display-3"><%= @user.point %></span> pts</p>
+    <% end %>
+      <div class="card-body text-white">
+        <p><span class="small text-white"><%= User.human_attribute_name(:hobby) %>：</span><%= @user.hobby %></p>
+        <p><span class="small text-white"><%= User.human_attribute_name(:character) %>：</span><%= @user.character %></p>
+        <%# 5ポイントブロック %>
+        <% if current_user.id == @user.id || current_user.admin? %><p><span class="small text-white"><%= User.human_attribute_name(:email) %>：</span><%= @user.email %></p>
+          <p><span class="small text-white"><%= User.human_attribute_name(:sex) %>：</span><%= set_sex(@user) %></p>
+          <p><span class="small text-white"><%= User.human_attribute_name(:generation) %>：</span><%= set_generation(@user) %></p>
+          <p class="font-weight-bold"><%= User.human_attribute_name(:point) %>：<span class="display-3"><%= @user.point %></span> pts</p>
+        <% end %>
       </div>
     </div>
   </div>
