@@ -6,7 +6,7 @@
       <% if current_user %>
         <div class="mb-3">
           <small class="text-info">[<%= current_user.name %> さんログイン中]</small><br />
-          <i class="fa-solid fa-p text-danger"></i><small class="text-danger"> <%= current_user.point %> ポイント所持</small>
+          <i class="fa-solid fa-square-p text-danger"></i><small class="text-danger"> <%= current_user.point %> ポイント所持</small>
         </div>
       <% end %>
       <% if flash.notice %>
