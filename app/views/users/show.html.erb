@@ -8,9 +8,9 @@
       <%= image_tag @user.image.variant(resize: "400x400^", gravity: "center", crop: "400x400+0+0"), class: 'mx-3 border border-dark', alt: 'Card image cap' %>
     <% else %>
       <%if @user.id == current_user.id %>
-        <%=image_tag mypage_demo_image, width: '300',class: 'mx-3 border border-dark', alt: 'Card image cap' %>
+        <%=image_tag mypage_demo_image, width: '330',class: 'mx-3 border border-dark', alt: 'Card image cap' %>
       <% else %>
-        <%=image_tag user_demo_image, width: '300', class: 'mx-3 border border-dark', alt: 'Card image cap' %>
+        <%=image_tag user_demo_image, width: '330', class: 'mx-3 border border-dark', alt: 'Card image cap' %>
       <% end %>
     <% end %>
       <div class="card-body text-white">
