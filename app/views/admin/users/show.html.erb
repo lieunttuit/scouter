@@ -5,7 +5,7 @@
     <div class="card bg-info border border-dark mb-3">
     <p class="lead text-white pt-3 pm-2"><%= yield(:title) %></p>
     <% if @user.image.attached? %>
-      <%= image_tag @user.image.variant(combine_options:{gravity: :center, resize:"400x400^", crop:"400x400+0+0"}), class: 'mx-3 border border-dark', alt: 'Card image cap' %>
+      <%= image_tag @user.image.variant(combine_options:{gravity: :center, resize:"400x400", crop:"400x400+0+0"}), class: 'mx-3 border border-dark', alt: 'Card image cap' %>
     <% else %>
       <%if @user.id == current_user.id %>
         <%=image_tag mypage_demo_image, class: 'mx-3 border border-dark', alt: 'Card image cap' %>
