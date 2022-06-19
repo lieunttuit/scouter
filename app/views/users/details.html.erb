@@ -2,22 +2,23 @@
 
 <div class="d-flex justify-content-center">
   <div class="col-sm-5">
-    <div class="card mb-3 bg-success border border-dark">
-    <p class="lead text-white pt-3 pm-2"><%= yield(:title) %></p>
-    <% if @user.image.attached? %>
-      <%= image_tag @user.image, class: 'mx-3 border border-dark', alt: 'Card image cap' %>
-    <% else %>
-      <%if @user.id == current_user.id %>
-        <%=image_tag mypage_demo_image, class: 'mx-3 border border-dark', alt: 'Card image cap' %>
+    <div class="card-prof mb-5">
+      <% if @user.image.attached? %>
+        <%= image_tag @user.image, class: 'card-prof-img', alt: 'Card image cap' %>
       <% else %>
-        <%=image_tag user_demo_image, class: 'mx-3 border border-dark', alt: 'Card image cap' %>
+        <%if @user.id == current_user.id %>
+          <%=image_tag mypage_demo_image, class: 'card-prof-img',alt: 'Card image cap' %>
+        <% else %>
+          <%=image_tag user_demo_image, class: 'card-prof-img',alt: 'Card image cap' %>
+        <% end %>
       <% end %>
-    <% end %>
-      <div class="card-body text-white">
-        <p><span class="small text-white"><%= User.human_attribute_name(:hobby) %>：</span><%= @user.hobby %></p>
-        <p><span class="small text-white"><%= User.human_attribute_name(:character) %>：</span><%= @user.character %></p>
-        <p><span class="small text-white"><%= User.human_attribute_name(:sex) %>：</span><%= set_sex(@user) %></p>
-        <p><span class="small text-white"><%= User.human_attribute_name(:generation) %>：</span><%= set_generation(@user) %></p>
+      <p class="lead pt-3"><%= yield(:title) %></p>
+      <div class="card-prof-content text-wine">
+        <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
+        <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>
+        <p><span class="small text-dark"><%= User.human_attribute_name(:character) %>：　</span><%= @user.character %></p>
+        <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
+        <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
       </div>
     </div>
   </div>
@@ -26,3 +27,7 @@
 <%= render "sub_pic" %>
 <%# 印象ブロック %>
 <%= render "impression" %>
+<p class="lead font-weight-bold mt-4">
+  <i class="fa-solid fa-arrow-rotate-left text-info"></i><br />
+  <%= link_to "前へ戻る", :back, class: "text-info" %>
+</p>

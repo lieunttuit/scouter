@@ -11,8 +11,13 @@
   </header>
   <h3 class="py-2">まずは登録！</h3>
   <p class="lead">
-    <%= link_to new_user_path, class: 'btn btn-warning btn-lg rounded-pill text-white font-weight-bold' do %>
+    <%= link_to new_user_registration_path, class: 'button02 font-weight-bold' do %>
       <i class="fa-solid fa-heart"></i>　さっそくはじめる
+    <% end %>
+  </p>
+  <p>
+    <%= link_to new_user_session_path, class: 'button03 btn-info font-weight-bold' do %>
+      <i class="fa-solid fa-right-to-bracket lead"></i>　ログイン
     <% end %>
   </p>
   <h3 class="mt-5">登録スカウターたちが写真でキミの「印象力」を計測！</h3>
@@ -64,20 +69,19 @@
 </div>
   
   <div>
-    <p>
-      <%= link_to login_path(name: "login"), class: 'btn btn-success rounded-pill text-white mt-4' do %><i class="fa-solid fa-right-to-bracket lead"></i>　ログイン<% end %>
-    </p>
     <p class="lead">
-      <%= link_to new_user_path, class: 'btn btn-warning btn-lg rounded-pill text-white font-weight-bold' do %>
+      <%= link_to new_user_registration_path, class: 'button02 mt-4 font-weight-bold' do %>
         <i class="fa-solid fa-heart"></i>　さっそくはじめる
       <% end %>
+    </p>
+    <p>
+      <%= link_to new_user_session_path, class: 'button03 btn-info mt-4 font-weight-bold' do %><i class="fa-solid fa-right-to-bracket lead"></i>　ログイン<% end %>
     </p>
   </div>
 <% else %>
   <% provide(:title, "スカウター一覧") %>
 
-  <P class="large">- スカウターを発動中 -</P>
-  <p><%= @users.count %> 人</p>
+  <P class="py-3">- スカウター発動中 -</P>
 
   <%= render "shared/paginate" %>
 
@@ -85,10 +89,12 @@
     <% @users.each do |user| %>
       <div class="card-x">
         <div class="card__imgframe-x">
-          <% if user.image.attached? %>
-            <%= image_tag user.image, class:'img-list border border-dark' %>
-          <% else %>
-            <%= image_tag user_demo_image, class:'img-list border border-dark' %>
+          <%= link_to user_path(user) do %>
+            <% if user.image.attached? %>
+              <%= image_tag user.image, class:'img-list border border-dark' %>
+            <% else %>
+              <%= image_tag user_demo_image, class:'img-list border border-dark' %>
+            <% end %>
           <% end %>
         </div>
         <div class="card__textbox-x">
@@ -103,4 +109,4 @@
 
   <%= render "shared/paginate" %>
   
- <% end %>
+<% end %>

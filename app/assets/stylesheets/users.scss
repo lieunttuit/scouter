@@ -7,18 +7,66 @@
 
 body {
   padding-top: 70px;
+  padding-bottom: 50px;
 }
 
-body .container {
-  background-color: #f0ece6;
+.body-color {
+  background: #f0ece6;
+}
+
+.text-chocolate {
+  color: #9e8484;
+}
+
+.text-brown {
+  color: #7a6666;
+}
+
+.text-wine {
+  color: #87091A;
+}
+
+.bg-brown {
+  background: #7a6666;
+}
+
+.bg-wine {
+  background: #87091A;
+}
+
+.bg-deepblue {
+  background: #0E376F;
 }
 
 .bg-lightblue {
-  background-color: #def9fc;
+  background: #C1CFCE;
 }
 
-.bg-lightred {
-  background-color: #f9e5e5;
+.bg-orange {
+  background: #E3A93B;
+}
+
+.rounded-corner {
+  border-radius: 30px 30px 0 0;
+}
+
+.text-divider {
+  display: flex;
+  align-items: center;
+  --text-divider-gap: 1rem;
+}
+.text-divider::before,
+.text-divider::after {
+  content: '';
+  height: 1px;
+  background-color: #555;
+  flex-grow: 1;
+}
+.text-divider::before {
+  margin-right: var(--text-divider-gap);
+}
+.text-divider::after {
+  margin-left: var(--text-divider-gap);
 }
 
 .logo {
@@ -28,6 +76,18 @@ body .container {
   font-size: 230px;
   color: #000;
 }
+
+/*footer*/
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #f0ece6;
+  padding: 15px 0;
+}
+
 /*メインビジュアル*/
 
 .jumbotron {
@@ -68,6 +128,23 @@ body .container {
   text-shadow: 1px 2px 2px #808080
 }
 
+/*ユーザープロフカード*/
+.card-prof {
+  margin: 0 auto;
+  width: 350px;
+  background: #fff;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 2px 5px #ccc;
+}
+.card-prof-img {
+  border-radius: 15px 15px 0 0;
+  max-width: 100%;
+  height: auto;
+}
+.card-prof-content {
+  padding: 20px;
+}
+
 /*ユーザー一覧ページ*/
 .card-group-x{
   margin-left: auto;
@@ -102,7 +179,7 @@ body .container {
   width: 100%;
   height: auto;
   padding: 20px 18px;
-  background: #fff;
+  background: #f0ece6;
   box-sizing: border-box;
 }
 .card__textbox-x > * + *{
@@ -450,9 +527,14 @@ input[type="radio"]:checked ~ .bullet .line.seven{
   justify-content: center;
 }
 
+.page-link {          
+  background: #f0ece6;
+}
+
 .pagination>li>a {          
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
+  border-radius: 30px; 
 }
 
 /* 表示しているページ番号のデザイン */
@@ -471,11 +553,6 @@ input[type="radio"]:checked ~ .bullet .line.seven{
   background: #17a2b8; 
   border-color: #17a2b8;
   border-radius: 30px; 
-}
-
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {        
-  border-radius: 30px;    /*角を丸くする*/
 }
 
 
@@ -555,7 +632,71 @@ a.btn-border:hover:after {
   width: 0;
 }
 
+/* ボタン２ */
 
+.button02{
+  display:block;
+  margin: 0 auto;
+  width: 300px;
+  height:60px;
+  line-height: 60px;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  background-color: #f39800; /*ボタン色*/
+  border-radius: 20px; /*角丸*/
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border: none;
+}
+.button02:hover{
+  background-color: #f9c500; /*ボタン色*/
+  color: #FFF;
+}
+
+/* ボタン3 */
+
+.button03{
+  display:block;
+  margin: 0 auto;
+  width: 300px;
+  height:60px;
+  line-height: 60px;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  background-color: #7a6666; /*ボタン色*/
+  border-radius: 20px; /*角丸*/
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border: none;
+}
+.button03:hover{
+  background-color: #87091a; /*ボタン色*/
+  color: #FFF;
+}
+
+/* ボタン4 */
+
+.button04{
+  display:block;
+  margin: 0 auto;
+  width: 300px;
+  height:60px;
+  line-height: 60px;
+  color: #FFF;
+  text-decoration: none;
+  text-align: center;
+  background-color: #74c6d3; /*ボタン色*/
+  border-radius: 20px; /*角丸*/
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border: none;
+}
+.button04:hover{
+  background-color: #0e376f; /*ボタン色*/
+  color: #FFF;
+}
 
 /* メディアクエリ適用寺 */
 
@@ -618,7 +759,7 @@ a.btn-border:hover:after {
 .arrow_box{
   position:relative;
   width:300px;
-  height:40px;
+  height:80px;
   background:#f3adcf;
   padding:10px;
   text-align:center;
