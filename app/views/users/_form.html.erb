@@ -17,18 +17,13 @@
         <th><%= f.label :email, 'メールアドレス', class: "text-muted" %><span class="small text-danger">※</span></th>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
       </tr>
-      <tr>
-        <th><%= f.label :password, '新しいパスワード', class: "text-muted" %><span class="small text-danger">※</span><br /><small>(変更なしの場合は空白)</small>
-    </th>
-        <td><%= f.password_field :password, autocomplete: "new-password", placeholder: "(6文字以上)", class: "form-control" %></td>
+     <tr>
+        <th><%= f.label :password, 'パスワード', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td><%= f.password_field :password, autocomplete: "password", autocomplete: "new-password", class: "form-control" %></td>
       </tr>
       <tr>
-        <th><%= f.label :password_confirmation, '新しいパスワード（確認）', class: "text-muted" %><span class="small text-danger">※</span></th>
-        <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %></td>
-      </tr>
-      <tr>
-        <th><%= f.label :password, '現在のパスワード', class: "text-muted" %><span class="small text-danger">※</span></th>
-        <td><%= f.password_field :current_password, autocomplete: "current-password", autocomplete: "new-password", placeholder: "(変更確認のためパスワード入力が必要です)", class: "form-control" %></td>
+        <th><%= f.label :password_confirmation, 'パスワード（確認）', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td><%= f.password_field :password_confirmation, autocomplete: "password", class: "form-control" %></td>
       </tr>
       <tr>
         <th><%= f.label :sex, '性別', class: "text-muted" %><span class="small text-danger">※</span></th>
