@@ -29,9 +29,9 @@
             <td>
                 <%= user.name %><br />
                 <% if user.image.attached? %>
-                    <%= image_tag user.image, height:50   %>
+                    <%= image_tag user.image, width:30   %>
                 <% else %>
-                    <%=image_tag "default_profile_img.png", height:50 %>
+                    <%=image_tag "default_profile_img.png", width:30 %>
                 <% end %>
             </td>
             <td><%= set_sex(user) %></td>
