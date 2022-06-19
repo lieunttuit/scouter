@@ -11,7 +11,7 @@
 <%= render "shared/paginate" %> 
 
 <table class="table table-hover bg-white shadow-sm my-3">
-    <thead class="thead-default">
+    <thead class="thead-default bg-light">
         <tr class="text-center">
             <th><%= sort_link(@q, :id, [:id, "created_at desc"], class: "text-info") %></th>
             <th><%= User.human_attribute_name(:image) %></th>
