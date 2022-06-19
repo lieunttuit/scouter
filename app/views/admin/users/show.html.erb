@@ -28,7 +28,7 @@
   </div>
 </div>
 <%# サブ画像ブロック %>
-<%= render "sub_pic" %>
+<%= render "users/sub_pic" %>
 <%# 測定ブロック %>
 <% if @user.id != current_user.id %>
   <%= link_to new_evaluation_path(user_id: current_user.id, evaluatee_id: @user.id), class: "button02" do %>
@@ -44,7 +44,7 @@
 <% end %>
 
 <%# 印象ブロック %>
-<%= render "impression" %>
+<%= render "users/impression" %>
 
 <%# プロフの編集・削除 %>
 <div class="text-center">
