@@ -1,7 +1,7 @@
 <% if @user.errors %>
   <ul id="error_explanation">
     <% user.errors.full_messages.each do |message| %>
-      <li class="text-wine"><%= message %></li>
+      <li class="text-danger"><%= message %></li>
     <% end %>
   </ul>
 <% end %>
@@ -10,23 +10,23 @@
   <table class="table table-hover bg-white shadow-sm">
     <tbody>
       <tr>
-        <th><%= f.label :name, '名前', class: "text-muted" %><span class="small text-wine"> ※必須</span></th>
+        <th><%= f.label :name, '名前', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
         <td><%= f.text_field :name, autofocus: true, class: "form-control" %></td>
       </tr>
       <tr>
-        <th><%= f.label :email, 'メールアドレス', class: "text-muted" %><span class="small text-wine"> ※必須</span></th>
+        <th><%= f.label :email, 'メールアドレス', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
       </tr>
      <tr>
-        <th><%= f.label :password, 'パスワード', class: "text-muted" %><span class="small text-wine"> ※必須</span></th>
+        <th><%= f.label :password, 'パスワード', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
         <td><%= f.password_field :password, class: "form-control" %></td>
       </tr>
       <tr>
-        <th><%= f.label :password_confirmation, 'パスワード（確認）', class: "text-muted" %><span class="small text-wine"> ※必須</span></th>
+        <th><%= f.label :password_confirmation, 'パスワード（確認）', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
         <td><%= f.password_field :password_confirmation, class: "form-control" %></td>
       </tr>
       <tr>
-        <th><%= f.label :sex, '性別', class: "text-muted" %><span class="small text-wine"> ※必須</span></th>
+        <th><%= f.label :sex, '性別', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
         <td><%= f.select :sex, [['女性', 0], ['男性', 1]], {}, { id: "sex", class: "form-control" } %></td>
       </tr>
       <tr>
@@ -38,11 +38,11 @@
         <td><%= f.text_field :character, class: "form-control" %></td>
       </tr>
       <tr>
-        <th><%= f.label :generation, '世代', class: "text-muted" %><span class="small text-wine"> ※必須</span></th>
+        <th><%= f.label :generation, '世代', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
         <td><%= f.select :generation, [['10代', 0], ['20代', 1], ['30代', 2],['40代', 3],['50代', 4],['60代以上', 5]],{}, { id: "generation", class: "form-control" } %></td>
       </tr>
       <tr>
-        <th><%= f.label :image, 'トップ画像', class: "text-muted" %><span class="small text-wine"> ※必須</span></th>
+        <th><%= f.label :image, 'トップ画像', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
         <td>
           <%= f.file_field :image, class: "form-control" %>
           <% if @user.image.attached? %>
