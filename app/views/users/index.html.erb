@@ -7,17 +7,17 @@
       <h1 class="font-weight-bold text-dark">第一印象って大事</h1>
         <h2 class="text-dark">スカウターで「印象力」を鍛える　</h2>
         <p class="logo-main-visual diplay-5">Scouter</p>
+        <p>
+    <%= link_to login_path, class: 'btn btn-info rounded-pill text-white font-weight-bold' do %>
+      <i class="fa-solid fa-right-to-bracket lead"></i>　ログイン
+    <% end %>
+  </p>
     </div>
   </header>
   <h3 class="py-2">まずは登録！</h3>
   <p class="lead">
     <%= link_to new_user_path, class: 'button02 font-weight-bold' do %>
       <i class="fa-solid fa-heart"></i>　さっそくはじめる
-    <% end %>
-  </p>
-  <p>
-    <%= link_to login_path, class: 'button03 btn-info font-weight-bold' do %>
-      <i class="fa-solid fa-right-to-bracket lead"></i>　ログイン
     <% end %>
   </p>
   <h3 class="mt-5">登録スカウターたちが写真でキミの「印象力」を計測！</h3>
