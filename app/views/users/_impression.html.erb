@@ -1,7 +1,7 @@
 <p>
-  <i class="fa-solid fa-chart-simple fa-3x mt-5 text-brown"></i>
+  <i class="fa-solid fa-chart-simple fa-3x mt-5 text-wine"></i>
 </p>
-<h3 class="text-brown mb-4">- <%= @user.name %>さんの印象は？ -</h3>
+<h3 class="text-wine mb-4">- <%= @user.name %>さんの印象は？ -</h3>
 
 <div class="bg-white rounded-corner border py-5">
   <p class="lead font-weight-bold">Total</p>
@@ -13,9 +13,9 @@
 </div>
 
 <p>
-  <i class="fa-solid fa-user-group fa-3x  mt-5 text-brown"></i>
+  <i class="fa-solid fa-user-group fa-3x  mt-5 text-deepblue"></i>
 </p>
-<h3 class="text-brown py-3">- 世代別支持率 -</h3>
+<h3 class="text-deepblue py-3">- 世代別支持率 -</h3>
 <div class="bg-white rounded-corner border py-5">
   <p class="lead">10代：<%= impression_graph(0) %><span class="text-info pl-2">（<%= impression_each_generation(0) %>）</span></p>
   <p class="lead">20代：<%= impression_graph(1) %><span class="text-info pl-2">（<%= impression_each_generation(1) %>）</span></p>
