@@ -14,7 +14,7 @@
     <thead class="thead-default bg-light">
         <tr class="text-center">
             <th><%= sort_link(@q, :id, [:id, "created_at desc"], class: "text-info") %></th>
-            <th><%= sort_link(@q, :name, [:name, "updated_at desc"], class: "text-info") %><br /><%= User.human_attribute_name(:image) %></th>
+            <th><%= sort_link(@q, :name, [:name, "updated_at desc"], class: "text-info") %></th>
             <th><%= sort_link(@q, :sex, [:sex, "updated_at desc"], class: "text-info") %></th>
             <th><%= sort_link(@q, :generation, [:generation, "updated_at desc"], class: "text-info") %></th>
             <th><%= sort_link(@q, :point, class: "text-info") %></th>
