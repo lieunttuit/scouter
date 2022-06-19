@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def no_evaluation
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
-    @sum == 0 ? 'まだだれからも評価はありません' : ''
+    @sum == 0 ? '(まだだれからも評価はありません)' : ''
   end
 
   def sum_impression
