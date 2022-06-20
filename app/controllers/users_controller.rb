@@ -33,13 +33,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    if params[:user][:sub_image_ids]
-      params[:user][:sub_image_ids].each do |sub_image_id|
-        sub_image = @user.sub_images.find(sub_image_id)
-        sub_image.purge
-      end
-    end
-
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "「#{@user.name}」さんはプロフィールを更新しました。" }
@@ -61,6 +54,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     lose_point
     flash[:notice] = "5ポイント消化。(所持ポイント#{@point})"
+  end
+
+  def purge_image
+    @user.image.purge
+    redirect_back fallback_location: user_path(@user), notice: "画像は削除されました。"
   end
 
   private
