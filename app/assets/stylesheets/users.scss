@@ -745,17 +745,20 @@ a.btn-border:hover:after {
 
     h1 {
       font-size: 33px;
-
+      text-align: right;
     }
     h2 {
       font-size: 20px;
-
+      text-align: right;
+      margin-right: -15px;
     }
   }
 
   .logo-main-visual {
     font-size: 120px;
-    padding-top: 30px;
+    text-align: right;
+    margin-right: -20px;
+    padding-bottom: 20px;
   }
   
 }
