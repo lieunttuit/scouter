@@ -4,3 +4,15 @@
 
 <%# サブ画像ブロック %>
 <%= render "sub_pic" %>
+
+<%# 印象ブロック %>
+<% if current_user.id == @user.id %>
+  <%= render "impression" %>
+<% end %>
+
+<%# プロフの削除 %>
+<% if current_user.id == @user.id || current_user.admin? %>
+  <div class="text-center mt-4">
+    <%= link_to "退会する", @user, method: :delete, data: { confirm: "「#{@user.name}」さん、本当に退会しますか？"}, class: "small text-secondary" %>
+  </div>
+<% end %>
