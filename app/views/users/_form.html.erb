@@ -19,11 +19,11 @@
       </tr>
      <tr>
         <th><%= f.label :password, 'パスワード', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
-        <td><%= f.password_field :password, class: "form-control" %></td>
+        <td><%= f.password_field :password, autofocus: true, autocomplete: "password", class: "form-control" %></td>
       </tr>
       <tr>
         <th><%= f.label :password_confirmation, 'パスワード（確認）', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
-        <td><%= f.password_field :password_confirmation, class: "form-control" %></td>
+        <td><%= f.password_field :password_confirmation, autofocus: true, autocomplete: "password_confirmation", class: "form-control" %></td>
       </tr>
       <tr>
         <th><%= f.label :sex, '性別', class: "text-muted" %><span class="small text-danger"> ※必須</span></th>
