@@ -1,6 +1,6 @@
-<h1><%= @user.name%>さんを測定する</h1>
+<h3><%= @user.name%>さんを測定する</h3>
 
-<i class="fa-solid fa-arrow-down-short-wide fa-3x text-brown my-3"></i>
+<i class="fa-solid fa-arrow-down-short-wide fa-3x text-brown my-2"></i>
 
 
 <%= form_with model: @evaluation, class: "mx-3", local: false do |f| %>
@@ -70,9 +70,7 @@
       </li>
     </ul>
   </div>
-  <div>
-    <%= f.button :type => "submit", class: "button02" do %>
-      <i class="fa-solid fa-eye lead"></i>　<span class="lead"> 測 定！</span>
-    <% end %>
-  </div>
+  <%= f.button :type => "submit", class: "button02 mb-5" do %>
+    <i class="fa-solid fa-eye lead"></i>　<span class="lead"> 測 定！</span>
+  <% end %>
 <% end %>
