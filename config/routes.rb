@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       post :details
     end
   end
-  
   get '/users/:id/details', to: 'users#show'
 
   delete "attachements/:id/purge", to: "attachments#purge", as: "purge_attachment"

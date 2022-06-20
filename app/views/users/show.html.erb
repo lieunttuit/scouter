@@ -19,7 +19,7 @@
         <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
         <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>
         <p><span class="small text-dark"><%= User.human_attribute_name(:character) %>：　</span><%= @user.character %></p>
-        <% if current_user.id == @user.id || current_admin %>
+        <% if current_user.id == @user.id || current_user.admin? %>
           <p><span class="small text-dark"><%= User.human_attribute_name(:email) %>：　</span><%= @user.email %></p>
           <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
           <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
@@ -61,7 +61,7 @@
 <% end %>
 
 <%# プロフの削除 %>
-<% if current_user.id == @user.id || current_admin %>
+<% if current_user.id == @user.id || current_user.admin? %>
   <div class="text-center mt-4">
     <%= link_to "退会する", @user, method: :delete, data: { confirm: "「#{@user.name}」さん、本当に退会しますか？"}, class: "small text-secondary" %>
   </div>
