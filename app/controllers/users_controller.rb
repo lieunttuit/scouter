@@ -56,11 +56,6 @@ class UsersController < ApplicationController
     flash[:notice] = "5ポイント消化。(所持ポイント#{@point})"
   end
 
-  def purge_image
-    @user.image.purge
-    redirect_back fallback_location: user_path(@user), notice: "画像は削除されました。"
-  end
-
   private
 
   def user_params
