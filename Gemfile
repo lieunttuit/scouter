@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
@@ -38,6 +38,12 @@ gem 'will_paginate-bootstrap4'
 gem 'ransack'
 gem 'dotenv-rails'
 gem 'sassc', '2.1.0'
+
+gem 'devise'
+gem 'devise-i18n'
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

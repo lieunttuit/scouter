@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
-  root to: 'users#index'
 
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  root to: 'home/index'
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    passwords:     'users/passwords',
+    sessions:      'users/sessions',
+  }
 
   namespace :admin do
     resources :users
     get '/evaluation', to: 'users#evaluation'
   end
 
-  
 
   resources :users do
     member do
