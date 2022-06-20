@@ -1,4 +1,4 @@
-<% provide(:title, "#{@user.name}さん") %>
+<% provide(:title, "#{@user.name}") %>
 
 <div class="d-flex justify-content-center">
   <div class="col-sm-5">
@@ -12,7 +12,9 @@
           <%=image_tag user_demo_image, class: 'card-prof-img',alt: 'Card image cap' %>
         <% end %>
       <% end %>
-      <p class="lead pt-3"><%= yield(:title) %></p>
+      <p class="lead pt-3"><%= yield(:title) %><br />
+        <span class="small text-muted">さん</small>
+      </p>
       <div class="card-prof-content text-wine">
         <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
         <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>

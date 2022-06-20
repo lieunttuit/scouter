@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users do
     post :details
   end
+  get '/users/:id/details', to: 'users#show'
   
   resources :evaluations, only: [:index, :new, :create]
 end

@@ -54,12 +54,6 @@ body {
   border-radius: 30px 30px 0 0;
 }
 
-.login-position {
-  position: absolute;
-  top: 500px;
-
-}
-
 .text-divider {
   display: flex;
   align-items: center;
@@ -153,6 +147,7 @@ footer {
 }
 .card-prof-content {
   padding: 20px;
+  padding-top: 0;
 }
 
 /*ユーザー一覧ページ*/
