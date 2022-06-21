@@ -1,6 +1,6 @@
 FROM ruby:2.7.6
 RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker-key.asc \
-  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker-key.asc] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null \
+  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
   && apt-get update -qq \
   && apt-get install -y build-essential libpq-dev nodejs yarn postgresql-client
 
