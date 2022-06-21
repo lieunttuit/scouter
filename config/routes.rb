@@ -13,7 +13,6 @@ Rails.application.routes.draw do
     get '/evaluation', to: 'users#evaluation'
   end
 
-
   resources :users do
     member do
       post :details
