@@ -50,7 +50,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def scouter
-    @users = User.order('updated_at DESC').paginate(page: params[:page], per_page: 6)
+    @scouters = User.all
   end
 
   private
