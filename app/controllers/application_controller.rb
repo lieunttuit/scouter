@@ -11,20 +11,10 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(resource)
-      case resource
-      when User
-        users_path 
-      when Admin
-        admins_users_path
-      end
+      users_path 
     end
     
     def after_sign_out_path_for(resource)
-      case resource
-      when User
-        root_path 
-      when Admin
-        root_path
-      end
+      root_path 
     end
 end
