@@ -12,6 +12,13 @@
         </tr>
     </thead>
     <tbody>
-   
+    <% @evaluations.each do |eval| %>
+        <tr>
+            <td><%= eval.id %></td>
+            <td><%= eval.evaluation_point %>pts</td>
+            <td><%= eval.user_id %></td>
+            <td><%= eval.evaluatee_id %></td>
+        </tr>
+    <% end %>    
     </tbody>
 </table>

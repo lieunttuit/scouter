@@ -1,0 +1,29 @@
+ <% provide(:title, "スカウター一覧") %>
+
+<P class="py-3">- スカウター発動中 -</P>
+
+<%= render "shared/paginate" %>
+
+<div class="card-group-x">
+  <% @users.each do |user| %>
+    <div class="card-x">
+      <div class="card__imgframe-x">
+        <%= link_to user_path(user) do %>
+          <% if user.image.attached? %>
+            <%= image_tag user.image, class:'img-list border border-dark' %>
+          <% else %>
+            <%= image_tag user_demo_image, class:'img-list border border-dark' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="card__textbox-x">
+        <p>
+          <%= user.name %><br />
+          <%= link_to "プロフィール", user_path(user), class: "btn btn-border small" %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= render "shared/paginate" %>

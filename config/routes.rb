@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :users
-    get '/evaluation', to: 'users#evaluation'
+    resources :users do
+      collection do
+        get :evaluation
+        get :scouter
+      end
+    end
   end
 
   resources :users do

@@ -29,6 +29,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+    respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "「#{@user.name}」さんはプロフィールを更新しました。" }
         format.json { render :show, status: :ok, location: @user }
@@ -36,6 +37,7 @@ class Admin::UsersController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def destroy
@@ -44,7 +46,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def evaluation
-    # @evaluations = Evaluation.includes(:user)
+    @evaluations = Evaluation.includes(:user)
+  end
+
+  def scouter
+    @users = User.order('updated_at DESC').paginate(page: params[:page], per_page: 6)
   end
 
   private
