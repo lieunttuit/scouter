@@ -30,6 +30,12 @@
         <td><%= f.select :sex, [['女性', 0], ['男性', 1]], {}, { id: "sex", class: "form-control" } %></td>
       </tr>
       <tr>
+        <th><%= f.label :admin, '管理者権限', class: "text-muted" %></th>
+        <td>
+            <%= f.check_box :admin, class: "form-control" %>
+        </td>
+      </tr>
+      <tr>
         <th><%= f.label :hobby, '趣味', class: "text-muted" %></th>
         <td><%= f.text_field :hobby, class: "form-control" %></td>
       </tr>
