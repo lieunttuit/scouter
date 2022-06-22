@@ -42,7 +42,7 @@
 <% if current_user.point >= 5 && @user.id != current_user.id %>
   <div class="mt-4">
     <span class="small text-brown"><%= no_evaluation %></small>
-    <%= link_to user_details_path(user_id: @user.id), method: :post, class: "button04" do %><i class="fa-solid fa-address-card lead"></i> 評価を見る！<small>(5ポイント消化)</small><% end %>
+    <%= link_to detais_user_path(user_id: @user.id), method: :post, class: "button04" do %><i class="fa-solid fa-address-card lead"></i> 評価を見る！<small>(5ポイント消化)</small><% end %>
   </div>
 <% end %>
 
