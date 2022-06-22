@@ -1,38 +1,88 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+<% if @user.errors %>
+  <ul id="error_explanation">
+    <% @user.errors.full_messages.each do |message| %>
+      <li class="text-danger"><%= message %></li>
     <% end %>
-  </div>
+  </ul>
+<% end %>
+<span class="small text-danger">※は必須項目</span>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <table class="table table-hover bg-light shadow-sm">
+    <tbody>
+      <tr>
+        <th><%= f.label :name, '名前', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td><%= f.text_field :name, autofocus: true, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :email, 'メールアドレス', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password, '新しいパスワード', class: "text-muted" %><span class="small text-danger">※</span><br /><small>(変更なしの場合は空白)</small>
+    </th>
+        <td><%= f.password_field :password, autocomplete: "new-password", placeholder: "(6文字以上)", class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password_confirmation, '新しいパスワード（確認）', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password, '現在のパスワード', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td><%= f.password_field :current_password, autocomplete: "current-password", autocomplete: "new-password", placeholder: "(変更確認のためパスワード入力が必要です)", class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :sex, '性別', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td><%= f.select :sex, [['女性', 0], ['男性', 1]], {}, { id: "sex", class: "form-control" } %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :hobby, '趣味', class: "text-muted" %></th>
+        <td><%= f.text_field :hobby, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :character, '性格', class: "text-muted" %></th>
+        <td><%= f.text_field :character, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :generation, '世代', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td><%= f.select :generation, [['10代', 0], ['20代', 1], ['30代', 2],['40代', 3],['50代', 4],['60代以上', 5]],{}, { id: "generation", class: "form-control" } %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :image, 'トップ画像', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <td>
+          <%= f.file_field :image, class: "form-control" %>
+          <% if @user.image.attached? %>
+            <div class="d-flex justify-content-start mt-2">
+              <%= image_tag @user.image.variant(resize: "30x30"), class:'px-2' %><span class="small">選択画像</span>
+            </div>
+          <% else %>
+            <span class="small">画像がありません。</span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %><br /><span class="small text-danger">(サブ画像は２枚まで選択可)</span></th>
+        <td>
+          <%= f.file_field :sub_images, multiple: true, class: "form-control" %>
+          <% if @user.sub_images.attached? %>
+            <div class="d-flex justify-content-start mt-2">
+              <% @user.sub_images.each do |sub_image| %>
+                <%#= f.check_box :sub_image_ids, { multiple: true }, sub_image.id, false %>
+                <label for="user_sub_images_<%= sub_image.id %>">
+                  <%= image_tag sub_image.variant(resize: "30x30"), class:'px-2' %>
+                </label>
+              <% end %>
+              <p class="small">選択画像</p>
+            </div>
+          <% else %>
+            <span class="small">画像がありません。</span>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table> 
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.update') %>
+  <div class="text-center">
+    <%= f.submit t('.update'), class: "btn btn-info rounded-pill" %>
   </div>
 <% end %>
 

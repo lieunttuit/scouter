@@ -1,16 +1,33 @@
-<h2><%= t('.sign_in') %></h2>
+<% provide(:title, "ユーザーログイン") %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<p class="lead"><%= yield(:title) %></p>
+
+<% if @error_message %>
+  <p class="text-danger"><%= @error_message %></p>
+<% end %>
+
+<%= form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f| %>
+
+  <div class="form-group d-flex row mt-5">
+    <div class="col-sm-12 col-md-3">
+      <%= f.label :email do %>
+        メールアドレス　<i class="fa-solid fa-envelope-circle-check lead text-success"></i>
+      <% end %>
+    </div>
+    <div class="col-sm-5 col-md-9 field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="form-group d-flex row">
+    <div class="col-sm-12 col-md-3">
+      <%= f.label :password do %>
+        パスワード　<i class="fa-solid fa-unlock-keyhole lead text-success"></i>
+      <% end %>
+    </div>
+    <div class="col-sm-5 col-md-9 field">
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+    </div>
   </div>
-
   <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
@@ -18,9 +35,13 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit t('.sign_in') %>
+  <div class="mt-2 mb-5">
+    <%= f.button :type => "submit", class: "btn btn-success btn-lg rounded-pill p-4 text-white" do %>
+      <i class="fa-solid fa-right-to-bracket fa-4x"></i>
+    <% end %>
   </div>
 <% end %>
+
+<p><%= link_to "管理者ログインページ", new_admin_session_path, class: 'btn btn-danger rounded-pill text-white' %></p>
 
 <%= render "users/shared/links" %>
