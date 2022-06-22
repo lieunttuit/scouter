@@ -19,7 +19,7 @@
         <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
         <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>
         <p><span class="small text-dark"><%= User.human_attribute_name(:character) %>：　</span><%= @user.character %></p>
-        <% if current_user.id == @user.id || current_user.admin? %>
+        <% if current_user.id == @user.id || current_admin %>
           <p><span class="small text-dark"><%= User.human_attribute_name(:email) %>：　</span><%= @user.email %></p>
           <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
           <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
@@ -27,7 +27,7 @@
         <% end %>
       </div>
       <%# プロフの編集 %>
-      <% if current_user.id == @user.id || current_user.admin? %>
+      <% if current_user.id == @user.id || current_admin %>
         <div class="text-center">
           <%= link_to edit_user_registration_path, class: "button03 mt-2" do %>
             <i class="fa-solid fa-pen-to-square"></i> プロフィール編集<br />
@@ -63,7 +63,7 @@
 <% end %>
 
 <%# プロフの削除 %>
-<% if current_user.id == @user.id || current_user.admin? %>
+<% if current_user.id == @user.id || current_admin %>
   <div class="text-center mt-4">
     <%= link_to "退会する", @user, method: :delete, data: { confirm: "「#{@user.name}」さん、本当に退会しますか？"}, class: "small text-secondary" %>
   </div>
