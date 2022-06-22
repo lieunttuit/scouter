@@ -27,7 +27,7 @@
         <% end %>
       </div>
       <%# プロフの編集 %>
-      <% if current_user.id == @user.id || current_user.admin? %>
+      <% if current_user.id == @user.id %>
         <div class="text-center">
           <%= link_to edit_user_registration_path, class: "button03 mt-2" do %>
             <i class="fa-solid fa-pen-to-square"></i> プロフィール編集<br />
