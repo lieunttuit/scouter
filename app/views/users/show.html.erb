@@ -63,7 +63,7 @@
 <% end %>
 
 <%# プロフの削除 %>
-<% if current_user.id == @user.id || current_user.admin? %>
+<% if current_user.id == @user.id %>
   <div class="text-center mt-4">
     <%= link_to "退会する", @user, method: :delete, data: { confirm: "「#{@user.name}」さん、本当に退会しますか？"}, class: "small text-secondary" %>
   </div>
