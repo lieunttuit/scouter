@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to admin_user_path(@user), notice: "ユーザー「#{@user.name}」を登録しました。"
+      redirect_to admin_users_path, notice: "ユーザー「#{@user.name}」を登録しました。"
     else
       render :new
     end
@@ -31,11 +31,9 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: "「#{@user.name}」さんはプロフィールを更新しました。" }
-        format.json { render :show, status: :ok, location: @user }
+        redirect_to admin_users_path, notice: "「#{@user.name}」さんはプロフィールを更新しました。" }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render :edit
       end
     end
   end
