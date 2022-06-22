@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'home#index'
+  root to: 'homeindex'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -9,12 +9,8 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :users do
-      collection do
-        get :evaluation
-        get :scouter
-      end
-    end
+    resources :users
+    get '/evaluation', to: 'users#evaluation'
   end
 
   resources :users do
