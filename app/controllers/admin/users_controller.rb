@@ -29,14 +29,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if params[:user][:sub_image_ids]
-      params[:user][:sub_image_ids].each do |sub_image_id|
-        sub_image = @user.sub_images.find(sub_image_id)
-        sub_image.purge
-      end
-    end
-
-    respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "「#{@user.name}」さんはプロフィールを更新しました。" }
         format.json { render :show, status: :ok, location: @user }
@@ -44,7 +36,6 @@ class Admin::UsersController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   def destroy
@@ -53,7 +44,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def evaluation
-    @evaluations = Evaluation.includes(:user)
+    # @evaluations = Evaluation.includes(:user)
   end
 
   private
