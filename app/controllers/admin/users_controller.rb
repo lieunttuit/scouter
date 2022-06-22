@@ -31,7 +31,7 @@ class Admin::UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        redirect_to admin_users_path, notice: "「#{@user.name}」さんはプロフィールを更新しました。" }
+        redirect_to admin_users_path, notice: "「#{@user.name}」さんはプロフィールを更新しました。" 
       else
         render :edit
       end
