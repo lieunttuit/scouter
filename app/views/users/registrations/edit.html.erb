@@ -82,12 +82,12 @@
   </table> 
 
   <div class="text-center">
-    <%= f.submit t('更新する'), class: "btn btn-info rounded-pill" %>
+    <%= f.submit "更新する", class: "btn btn-info rounded-pill" %>
   </div>
 <% end %>
 
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
-
 <%= link_to t('devise.shared.links.back'), :back %>
+
+<div class="text-center mt-4">
+  <%= link_to "退会する", @user, method: :delete, data: { confirm: "「#{@user.name}」さん、本当に退会しますか？"}, class: "small text-secondary" %>
+</div>
