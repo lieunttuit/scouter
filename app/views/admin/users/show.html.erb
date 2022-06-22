@@ -51,10 +51,10 @@
 
 <%# プロフの編集・削除 %>
 <div class="text-center">
-  <%= link_to  edit_admin_user_path(@user.id), class: "btn btn-info rounded-pill text-white mb-3" do %>
+  <%= link_to edit_user_path(@user.id), class: "btn btn-info rounded-pill text-white mb-3" do %>
     <i class="fa-solid fa-pen-to-square"></i> プロフィール編集<br />
   <% end %><br />
-  <%= link_to "退会させる", admin_user_path(@user.id), method: :delete, data: { confirm: "「#{@user.name}」さんを本当に退会させますか？"}, class: "small text-secondary" %>
+  <%= link_to "退会させる", user_path(@user.id), method: :delete, data: { confirm: "「#{@user.name}」さんを本当に退会させますか？"}, class: "small text-secondary" %>
 </div>
 
 
