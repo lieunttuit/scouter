@@ -49,10 +49,6 @@ class Admin::UsersController < ApplicationController
     @evaluations = Evaluation.includes(:user)
   end
 
-  def scouter
-    @scouters = User.all
-  end
-
   private
 
   def require_admin
