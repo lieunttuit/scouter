@@ -10,7 +10,7 @@
           <li class="nav_item"><%= link_to admin_evaluation_path, class: 'nav-link' do %><i class="fa-solid fa-chart-simple lead text-chocolate"></i><% end %></li>
         <% end %>
 
-        <li class="nav_item"><%= link_to logout_path, method: :delete, class: 'nav-link' do %><i class="fa-solid fa-door-open lead text-chocolate"></i><% end %></li>
+        <li class="nav_item"><%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %><i class="fa-solid fa-door-open lead text-chocolate"></i><% end %></li>
 
       <% else %>
   
