@@ -76,8 +76,8 @@ class UsersController < ApplicationController
 
   def lose_point
     @point = current_user.point
-    if @point > 5
-      @point -= 5
+    if @point > 3
+      @point -= 3
     else
       @point = 0
     end

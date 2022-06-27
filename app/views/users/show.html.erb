@@ -50,10 +50,10 @@
   <% end %>
 <% end %>
 
-<%# 5ポイント以上でプロフチェック %>
-<% if current_user.point >= 5 && @user.id != current_user.id %>
+<%# 3ポイント以上でプロフチェック %>
+<% if current_user.point >= 3 && @user.id != current_user.id %>
   <div class="mt-4">
-    <%= link_to details_user_path(user_id: @user.id), method: :post, class: "button04" do %><i class="fa-solid fa-address-card lead"></i> 評価を見る！<small>(5ポイント消化)</small><% end %>
+    <%= link_to details_user_path(user_id: @user.id), method: :post, class: "button04" do %><i class="fa-solid fa-address-card lead"></i> 評価を見る！<small>(3ポイント消化)</small><% end %>
   </div>
 <% end %>
 
