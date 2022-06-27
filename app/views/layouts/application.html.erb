@@ -9,11 +9,11 @@
           <% end %> 
         </small>
       </div>
-      <% if !current_user.admin? %>
+
         <p class="mb-5">
           まずは3人を評価して<b class="text-wine">3ポイントゲット</b>しよう！<br /><b class="text-wine">３ポイントたまったら</b>興味のある人の評価をのぞいてみよう！
         </p>
-      <% end %>
+
       <% if flash.notice %>
         <div class="alert alert-light"><%= flash.notice %></div>
       <% end %>
