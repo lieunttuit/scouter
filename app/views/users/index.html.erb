@@ -1,7 +1,10 @@
- <% provide(:title, "スカウター一覧") %>
-<p class="mb-5">
-  まずは3人を評価して<b class="text-wine">3ポイントゲット</b>しよう！<br /><b class="text-wine">３ポイントたまったら</b>興味のある人の評価をのぞいてみよう！
-</p>
+<% provide(:title, "スカウター一覧") %>
+
+<% if current_user.point < 3 %>
+  <p class="mb-5">
+    まずは3人を評価して<b class="text-wine">3ポイントゲット</b>しよう！<br /><b class="text-wine">３ポイントたまったら</b>興味のある人の評価をのぞいてみよう！
+  </p>
+<% end %>
 <div class="card-group-x">
   <% @users.each do |user| %>
     <div class="card-x">
