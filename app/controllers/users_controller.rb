@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   def details
     @user = User.find(params[:user_id])
     lose_point
-    flash[:notice] = "5ポイント消化。(所持ポイント#{@point})"
+    flash[:notice] = "3ポイント消化。(所持ポイント#{@point})"
   end
 
   def purge_image
