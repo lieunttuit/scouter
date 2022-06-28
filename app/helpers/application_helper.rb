@@ -73,20 +73,4 @@ module ApplicationHelper
       ''
     end
   end
-
-  def user_demo_image
-    if current_user.sex == 0
-      'figure' + rand(1..6).to_s + '.jpg'
-    else
-      'figure' + rand(7..12).to_s + '.jpg'
-    end
-  end
-
-  def mypage_demo_image
-    if current_user.sex == 0
-      'figure' + rand(7..12).to_s + '.jpg'
-    else
-      'figure' + rand(1..6).to_s + '.jpg'
-    end
-  end
 end

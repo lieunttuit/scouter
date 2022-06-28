@@ -13,7 +13,7 @@
           <% if user.image.attached? %>
             <%= image_tag user.image, class:'img-list border border-dark' %>
           <% else %>
-            <%= image_tag user_demo_image, class:'img-list border border-dark' %>
+            <%= image_tag "default_profile_img.png", class:'img-list border border-dark' %>
           <% end %>
         <% end %>
       </div>

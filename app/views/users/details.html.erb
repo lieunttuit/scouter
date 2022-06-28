@@ -6,11 +6,7 @@
       <% if @user.image.attached? %>
         <%= image_tag @user.image, class: 'card-prof-img', alt: 'Card image cap' %>
       <% else %>
-        <%if @user.id == current_user.id %>
-          <%=image_tag mypage_demo_image, class: 'card-prof-img',alt: 'Card image cap' %>
-        <% else %>
-          <%=image_tag user_demo_image, class: 'card-prof-img',alt: 'Card image cap' %>
-        <% end %>
+        <%=image_tag "default_profile_img.png", class: 'card-prof-img',alt: 'Card image cap' %>
       <% end %>
       <p class="lead pt-3"><%= yield(:title) %></p>
       <div class="card-prof-content text-wine">
