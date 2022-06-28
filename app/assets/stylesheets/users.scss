@@ -96,34 +96,37 @@ footer {
   background-repeat: no-repeat;
   margin-left: -100px;
   margin-right: -100px;
-  height: 630px;
+  height: 600px;
 }
 
 .jumbotron.main-visual {
-  height: 590px;
-  padding-top: 40px;
+  height: 560px;
+  padding-top: 100px;
   background-size: cover;
 
   h1 {
-    margin-top: 60px;
-    font-size: 85px;
-    text-shadow: 2px 2px 2px #fff
-  }
-  h2 {
-    margin-top: 30px;
+    // margin-top: 60px;
+    font-size: 80px;
     text-shadow: 2px 2px 2px #fff
   }
 }
 
 .logo-main-visual {
   font-family: 'Poiret One', cursive;
-  font-size: 200px;
+  font-size: 220px;
   color: #fff;
-  margin-top: -40px;
-  margin-bottom: -50px;
+
   text-shadow: 1px 2px 2px #808080
 }
 
+.circle-btn {
+  width:300px;
+  height:60px;
+  margin: 0 auto;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  border-radius:0 0 30px 30px;
+  }
 /*ユーザープロフカード*/
 .card-prof {
   margin: 0 auto;
@@ -730,15 +733,15 @@ a.btn-border:hover:after {
 @media screen and (max-width: 414px) {
   .jumbotron.main-visual {
     h1 {
-      font-size: 28px;
+      font-size: 33px;
     }
     h2 {
-      font-size: 17px;
+      font-size: 20px;
     }
   }
 
   .logo-main-visual {
-    font-size: 80px;
+    font-size: 120px;
     padding-bottom: 20px;
   }
   
