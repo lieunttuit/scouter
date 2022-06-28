@@ -8,9 +8,6 @@
             <%= image_tag "https://cdn.with.is/assets/shared/icons/point-13022b529ea3220c018a44897946eab5913d018375c5f482c11452b24a92b2bc.svg", width: "25" %><br /><span class="font-weight-bold lead"><%= current_user.point %></span> ポイント所持
           </small>
         <% end %>
-        <% if current_user.point >= 3  %>
-          <p class="my-3"><b class="text-info">３ポイント消化</b>で気になるユーザーの評価がのぞけます！</p>
-        <% end %>
       </div>
       <% if flash.notice %>
         <div class="alert alert-light"><%= flash.notice %></div>
