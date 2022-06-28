@@ -102,9 +102,7 @@ footer {
 .jumbotron.main-visual {
   height: 590px;
   padding-top: 40px;
-  padding-right: 30px;
   background-size: cover;
-  text-align: right;
 
   h1 {
     margin-top: 60px;
@@ -716,7 +714,6 @@ a.btn-border:hover:after {
 
 @media screen and (max-width: 560px) {
   .jumbotron.main-visual {
-    text-align: center;
     h1 {
       font-size: 40px;
     }
@@ -725,24 +722,23 @@ a.btn-border:hover:after {
   }
 
   .logo-main-visual {
-    font-size: 150px;
+    font-size: 120px;
   }
   
 }
 
 @media screen and (max-width: 414px) {
   .jumbotron.main-visual {
-    text-align: center;
     h1 {
-      font-size: 33px;
+      font-size: 28px;
     }
     h2 {
-      font-size: 20px;
+      font-size: 17px;
     }
   }
 
   .logo-main-visual {
-    font-size: 120px;
+    font-size: 100px;
     padding-bottom: 20px;
   }
   
