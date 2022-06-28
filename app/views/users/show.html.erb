@@ -1,9 +1,10 @@
 <% provide(:title, "#{@user.name}") %>
 
-<div class="d-flex justify-content-center">
 <% unless @user.image.attached? %>
-<p class="mb-3">まずは<b class="text-wine">トップ画像</b>を変えましょう！ <%= link_to "画像変更", edit_user_registration_path, class: ""  %></p>
+<p class="mb-3">まずは<b class="text-wine">トップ画像</b>を変えましょう！ <%= link_to "(画像変更)", edit_user_registration_path, class: "btn-info btn-sm "  %></p>
 <% end %>
+
+<div class="d-flex justify-content-center">
   <div class="col-sm-5">
     <div class="card-prof mb-2">
       <% if @user.image.attached? %>
