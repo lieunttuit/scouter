@@ -13,34 +13,34 @@ class Admin::UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    # @user = User.new
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to admin_users_path, notice: "ユーザー「#{@user.name}」を登録しました。"
-    else
-      render :new
-    end
+    # @user = User.new(user_params)
+    # if @user.save
+    #   redirect_to admin_users_path, notice: "ユーザー「#{@user.name}」を登録しました。"
+    # else
+    #   render :new
+    # end
   end
 
   def edit
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        redirect_to admin_users_path, notice: "「#{@user.name}」さんはプロフィールを更新しました。" 
-      else
-        render :edit
-      end
-    end
+    # respond_to do |format|
+    #   if @user.update(user_params)
+    #     redirect_to admin_users_path, notice: "「#{@user.name}」さんはプロフィールを更新しました。" 
+    #   else
+    #     render :edit
+    #   end
+    # end
   end
 
   def destroy
-    @user.destroy
-    redirect_to admin_users_path, notice: "ユーザー「#{@user.name}」を削除しました。"
+    # @user.destroy
+    # redirect_to admin_users_path, notice: "ユーザー「#{@user.name}」を削除しました。"
   end
 
   def evaluation
