@@ -1,7 +1,10 @@
 <% provide(:title, "#{@user.name}") %>
 
-<% unless @user.image.attached? %>
-<p class="mb-3">まずは<b class="text-wine">トップ画像</b>を変えましょう！ <%= link_to "画像変更", edit_user_registration_path, class: "btn-info btn-sm rounded-pill"  %></p>
+
+<% if current_user.id == @user.id %>
+  <% unless @user.image.attached? %>
+  <p class="mb-3">まずは<b class="text-wine">トップ画像</b>を変えましょう！ <%= link_to "画像変更", edit_user_registration_path, class: "btn-info btn-sm rounded-pill"  %></p>
+  <% end %>
 <% end %>
 
 <div class="d-flex justify-content-center">
