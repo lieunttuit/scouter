@@ -28,18 +28,17 @@
   <p class="lead font-weight-bold text-danger">How To Use</p>
   <p class="lead font-weight-bold">使い方はカンタン。</p>
 
+  <p>
   <%= image_tag 'cell_phone.jpg', size: '320x240', class: 'rounded-circle my-4' %>
+  </p>
+  <i class="fa-solid fa-1 text-wine display-4 pb-3"></i>
+  <p class="lead">だれかが自分の評価をすると自分の印象がわかる！</p>
+  <i class="fa-solid fa-2 text-wine display-4 pb-3"></i>
+  <p class="lead">一人評価するごとに<span class="font-weight-bold text-danger">「1ポイント」</span>がたまる！</p>
+  <i class="fa-solid fa-3 text-wine display-4 pb-3"></i>
+  <p class="lead"> <span class="font-weight-bold text-danger">「3ポイント」</span>たまると気になる人の評価をのぞくことができる！<br /><small>（<span class="text-danger">※</span> 所持ポイント3ポイント以上で「評価ボタン」が現れます）</small></p>
 
-  <ul class="mb-5">
-    <li><i class="fa-solid fa-1 text-wine"></i>　だれかが自分の評価をすると自分の印象がわかる！</li>
-    <li><i class="fa-solid fa-2 text-wine"></i>　一人評価するごとに<span class="font-weight-bold text-danger">「1ポイント」</span>ポイントがたまる！</li>
-    <li><i class="fa-solid fa-3 text-wine"></i> 
-      <span class="font-weight-bold text-danger"> 「3ポイント」</span>たまると気になる人の評価をのぞくことができる！<br />
-      <small>　　（※所持ポイント3ポイント以上で「評価ボタン」が現れます）</small>
-    </li>
-  </ul>
-
-  <div class="card-deck text-center bg-lightblue pt-3 mt-4">
+  <div class="card-deck text-center bg-lightblue pt-3 my-5">
     <div class="card mb-4 border-0">
         <div class="card-body mt-3 py-0 px-0">
             <%= image_tag 'top_sub1.png', width: '250', class: 'border border-secondary rounded' %>
@@ -77,7 +76,7 @@
   
   <div>
     <p class="lead">
-      <%= link_to new_user_registration_path, class: 'button02 mt-4 font-weight-bold' do %>
+      <%= link_to new_user_registration_path, class: 'button02 font-weight-bold' do %>
         <i class="fa-solid fa-heart"></i>　さっそくはじめる
       <% end %>
     </p>
