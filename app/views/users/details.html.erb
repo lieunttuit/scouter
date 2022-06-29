@@ -1,21 +1,19 @@
 <% provide(:title, "#{@user.name}さんプロフィール") %>
 
 <div class="d-flex justify-content-center">
-  <div class="col-sm-5">
-    <div class="card-prof mb-5">
-      <% if @user.image.attached? %>
-        <%= image_tag @user.image, class: 'card-prof-img', alt: 'Card image cap' %>
-      <% else %>
-        <%=image_tag "default_profile_img.png", class: 'card-prof-img',alt: 'Card image cap' %>
-      <% end %>
-      <p class="lead pt-3"><%= yield(:title) %></p>
-      <div class="card-prof-content text-wine">
-        <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
-        <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>
-        <p><span class="small text-dark"><%= User.human_attribute_name(:character) %>：　</span><%= @user.character %></p>
-        <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
-        <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
-      </div>
+  <div class="card-prof mb-5">
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image, class: 'card-prof-img', alt: 'Card image cap' %>
+    <% else %>
+      <%=image_tag "default_profile_img.png", class: 'card-prof-img',alt: 'Card image cap' %>
+    <% end %>
+    <p class="lead pt-3"><%= yield(:title) %></p>
+    <div class="card-prof-content text-wine">
+      <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
+      <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>
+      <p><span class="small text-dark"><%= User.human_attribute_name(:character) %>：　</span><%= @user.character %></p>
+      <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
+      <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
     </div>
   </div>
 </div>
