@@ -15,9 +15,9 @@
       <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
       <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
     </div>
+    <%# サブ画像ブロック %>
+    <%= render "sub_pic" %>
   </div>
-  <%# サブ画像ブロック %>
-  <%= render "sub_pic" %>
 </div>
 
 <%# 印象ブロック %>
