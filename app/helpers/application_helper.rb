@@ -49,25 +49,25 @@ module ApplicationHelper
       point = impression_each_generation(num) /10
       point = point.round
       if point == 10
-        '❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️'
+        '■■■■■■■■■■'
       elsif point >= 9
-        '❤️❤️❤️❤️❤️❤️❤️❤️❤️'
+        '■■■■■■■■■'
       elsif point >= 8
-        '❤️❤️❤️❤️❤️❤️❤️❤️'
+        '■■■■■■■■'
       elsif point >= 7
-        '❤️❤️❤️❤️❤️❤️❤️'
+        '■■■■■■■'
       elsif point >= 6
-        '❤️❤️❤️❤️❤️❤️'
+        '■■■■■■'
       elsif point >= 5
-        '❤️❤️❤️❤️❤️'
+        '■■■■■'
       elsif point >= 4
-        '❤️❤️❤️❤️'
+        '■■■■'
       elsif point >= 3
-        '❤️❤️❤️'
+        '■■■'
       elsif point >= 2
-        '❤️❤️'
+        '■■'
       else point >= 1
-        '❤️'
+        '■'
       end
     else
       ''
