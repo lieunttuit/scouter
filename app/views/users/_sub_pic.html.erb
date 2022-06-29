@@ -5,7 +5,7 @@
       <%= image_tag attachment.variant(resize: "300x400"), class: 'rounded border mx-2 mb-3' %>
       <% if current_user.id == @user.id %>
         <br />
-          <small><%= link_to "[▲クリックして画像削除]", purge_attachment_path(attachment), class: "text-chocolate", method: :delete %></small>
+          <small><%= link_to "[▲クリックして画像削除]", purge_attachment_path(attachment), class: "text-chocolate", method: :delete,  data: { confirm: "「画像を削除します。よろしいですか？"} %></small>
         <br />
       <% end %>
     </div>
