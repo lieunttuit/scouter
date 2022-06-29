@@ -1,14 +1,13 @@
 <% if @user.sub_images.attached? %>
-  <p>
-    <i class="fa-solid fa-image-portrait fa-3x mt-5 text-brown"></i>
-  </p>
-  <h3 class="text-brown my-3 py-3">- その他画像 -</h3>
+<div class="text-divider font-weight-bold text-dark pb-4">サブ画像</div>
   <% @user.sub_images.each do |attachment| %>
-    <%= image_tag attachment.variant(resize: "400x400"), class: 'rounded border mx-2' %>
-    <% if current_user.id == @user.id %>
-      <br />
-        <small><%= link_to "[クリックして画像削除]", purge_attachment_path(attachment), class: "text-chocolate", method: :delete %></small>
-      <br />
-    <% end %>
+    <div class="mb-3">
+      <%= image_tag attachment.variant(resize: "300x400"), class: 'rounded border mx-2 mb-3' %>
+      <% if current_user.id == @user.id %>
+        <br />
+          <small><%= link_to "[▲クリックして画像削除]", purge_attachment_path(attachment), class: "text-chocolate", method: :delete %></small>
+        <br />
+      <% end %>
+    </div>
   <% end %>
 <% end %>

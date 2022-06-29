@@ -5,7 +5,7 @@
     まずは3人を評価して<b class="text-wine">3ポイントゲット</b>しよう！<br /><b class="text-wine">３ポイントたまったら</b>興味のある人の評価をのぞいてみよう！
   </p>
 <% else %>
-  <p class="mb-5"><b class="text-info">３ポイント消化</b>で気になるユーザーの評価がのぞけます！</p>
+  <p class="mb-5"><b class="text-info">３ポイント消化</b>で気になる相手の評価がのぞける！</p>
 <% end %>
 <div class="card-group-x">
   <% @users.each do |user| %>
@@ -21,7 +21,6 @@
       </div>
       <div class="card__textbox-x">
         <p>
-          <%= user.name %><br />
           <%= link_to "プロフィール", user_path(user), class: "btn btn-border small" %>
         </p>
       </div>

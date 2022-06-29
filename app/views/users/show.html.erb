@@ -5,27 +5,27 @@
 <% end %>
 
 <div class="d-flex justify-content-center">
-  <div class="col-sm-5">
-    <div class="card-prof mb-2">
-      <% if @user.image.attached? %>
-        <%= image_tag @user.image, class: 'card-prof-img', alt: 'Card image cap' %>
-      <% else %>
-        <%=image_tag "default_profile_img.png", class: 'card-prof-img',alt: 'Card image cap' %>
+  <div class="card-prof mb-2">
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image, class: 'card-prof-img', alt: 'Card image cap' %>
+    <% else %>
+      <%=image_tag "default_profile_img.png", class: 'card-prof-img',alt: 'Card image cap' %>
+    <% end %>
+    <p class="lead pt-3"><%= yield(:title) %><br />
+      <span class="small text-muted">さん</small>
+    </p>
+    <div class="card-prof-content text-wine">
+      <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
+      <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>
+      <p><span class="small text-dark"><%= User.human_attribute_name(:character) %>：　</span><%= @user.character %></p>
+      <% if current_user.id == @user.id || current_user.admin? %>
+        <p><span class="small text-dark"><%= User.human_attribute_name(:email) %>：　</span><%= @user.email %></p>
+        <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
+        <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
+        <p class="font-weight-bold text-dark mt-5"><%= image_tag "https://cdn.with.is/assets/shared/icons/point-13022b529ea3220c018a44897946eab5913d018375c5f482c11452b24a92b2bc.svg", width: "50" %>　<%= User.human_attribute_name(:point) %><br /><span class="display-3"><%= @user.point %></span></p>
       <% end %>
-      <p class="lead pt-3"><%= yield(:title) %><br />
-        <span class="small text-muted">さん</small>
-      </p>
-      <div class="card-prof-content text-wine">
-        <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
-        <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>
-        <p><span class="small text-dark"><%= User.human_attribute_name(:character) %>：　</span><%= @user.character %></p>
-        <% if current_user.id == @user.id || current_user.admin? %>
-          <p><span class="small text-dark"><%= User.human_attribute_name(:email) %>：　</span><%= @user.email %></p>
-          <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
-          <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
-          <p class="font-weight-bold text-dark mt-5"><%= image_tag "https://cdn.with.is/assets/shared/icons/point-13022b529ea3220c018a44897946eab5913d018375c5f482c11452b24a92b2bc.svg", width: "50" %>　<%= User.human_attribute_name(:point) %><br /><span class="display-3"><%= @user.point %></span></p>
-        <% end %>
-      </div>
+      <%# サブ画像ブロック %>
+      <%= render "sub_pic" %>
       <%# プロフの編集 %>
       <% if current_user.id == @user.id %>
         <div class="text-center">
@@ -37,11 +37,6 @@
     </div>
   </div>
 </div>
-
-
-
-<%# サブ画像ブロック %>
-<%= render "sub_pic" %>
 
 <%# 測定ブロック %>
 <% if @user.id != current_user.id %>
