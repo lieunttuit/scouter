@@ -16,9 +16,10 @@
       <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
     </div>
   </div>
+  <%# サブ画像ブロック %>
+  <%= render "sub_pic" %>
 </div>
-<%# サブ画像ブロック %>
-<%= render "sub_pic" %>
+
 <%# 印象ブロック %>
 <%= render "impression" %>
 <p class="lead font-weight-bold mt-4">
