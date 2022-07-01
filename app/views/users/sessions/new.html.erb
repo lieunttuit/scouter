@@ -41,11 +41,6 @@
   </div>
 <% end %>
 
-<div>
-  <p class="lead">
-    <%= link_to new_user_registration_path, class: 'button02 mt-4 font-weight-bold' do %>
-      <i class="fa-solid fa-heart"></i>　新規登録
-    <% end %>
-  </p>
+<div class="mt-5">
+  <%= render "users/shared/links" %>
 </div>
-<%#= render "users/shared/links" %>
