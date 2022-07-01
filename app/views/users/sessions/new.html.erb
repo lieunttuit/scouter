@@ -3,7 +3,7 @@
 <p class="lead"><%= yield(:title) %></p>
 
 <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f| %>
-<%= render "shared/error_messages", resource: resource %>
+<%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-group d-flex row mt-5">
     <div class="col-sm-12 col-md-3">

@@ -1,4 +1,10 @@
-<%= render "shared/error_messages", resource: resource %>
+<% if @user.errors %>
+  <ul id="error_explanation">
+    <% @user.errors.full_messages.each do |message| %>
+      <li class="text-danger"><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <span class="small text-danger">※は必須項目</span>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <table class="table table-hover bg-light shadow-sm">
