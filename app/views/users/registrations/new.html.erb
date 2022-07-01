@@ -2,13 +2,13 @@
 
 <p class="lead mb-3"><%= yield(:title) %></p>
 
-<% if @user.errors %>
+
   <ul id="error_explanation">
     <% @user.errors.full_messages.each do |message| %>
       <li class="text-danger"><%= message %></li>
     <% end %>
   </ul>
-<% end %>
+
 
 <span class="small text-danger">※は必須項目</span>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -71,7 +71,7 @@
           <% if @user.sub_images.attached? %>
             <div class="d-flex justify-content-start mt-2">
               <% @user.sub_images.each do |sub_image| %>
-                <%= f.check_box :sub_image_ids, { multiple: true }, sub_image.id, false %>
+                <%#= f.check_box :sub_image_ids, { multiple: true }, sub_image.id, false %>
                 <label for="user_sub_image_ids_<%= sub_image.id %>">
                   <%= image_tag sub_image.variant(resize: "30x30"), class:'px-2' %>
                 </label>
