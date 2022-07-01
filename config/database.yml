@@ -8,12 +8,11 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
-  host: localhost
+  database: scouter_development
 
 test:
   <<: *default
-  database: myapp_test
+  database: scouter_test
 
 production:
   <<: *default

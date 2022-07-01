@@ -44,8 +44,8 @@ end
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: 'pass',
-    password_confirmation: 'pass',
+    password: 'password',
+    password_confirmation: 'password',
     admin: false,
     sex: 1,
     hobby: "カラオケ",
