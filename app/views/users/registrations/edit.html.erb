@@ -19,13 +19,12 @@
       </tr>
       <tr>
         <th><%= f.label :password, '新しいパスワード', class: "text-muted" %><br />
-        <small>(変更なしの場合は空白)</small>
     </th>
-        <td><%= f.password_field :password, autocomplete: "new-password", placeholder: "(6文字以上)", class: "form-control" %></td>
+        <td><%= f.password_field :password, autocomplete: "new-password", placeholder: "(変更なしの場合は空白)", class: "form-control" %></td>
       </tr>
       <tr>
         <th><%= f.label :password_confirmation, '新しいパスワード（確認）', class: "text-muted" %></th>
-        <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %></td>
+        <td><%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "(変更なしの場合は空白)", class: "form-control" %></td>
       </tr>
       <tr>
         <th><%= f.label :password, '現在のパスワード', class: "text-muted" %><span class="small text-danger">※</span></th>
@@ -48,7 +47,7 @@
         <td><%= f.select :generation, [['10代', 0], ['20代', 1], ['30代', 2],['40代', 3],['50代', 4],['60代以上', 5]],{}, { id: "generation", class: "form-control" } %></td>
       </tr>
       <tr>
-        <th><%= f.label :image, 'トップ画像', class: "text-muted" %><span class="small text-danger">※</span></th>
+        <th><%= f.label :image, 'トップ画像', class: "text-muted" %></th>
         <td>
           <%= f.file_field :image, class: "form-control" %>
           <% if @user.image.attached? %>
@@ -61,7 +60,7 @@
         </td>
       </tr>
       <tr>
-        <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %><br /><span class="small text-danger">(サブ画像は２枚まで選択可)</span></th>
+        <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %><br /><span class="small text-info">(サブ画像は２枚まで選択可)</span></th>
         <td>
           <%= f.file_field :sub_images, multiple: true, class: "form-control" %>
           <% if @user.sub_images.attached? %>

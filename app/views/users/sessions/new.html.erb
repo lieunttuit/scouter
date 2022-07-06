@@ -7,7 +7,7 @@
 
 <%= form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f| %>
 
-  <div class="form-group d-flex row mt-5">
+  <div class="form-group d-flex row mt-5 mx-3">
     <div class="col-sm-12 col-md-3">
       <%= f.label :email do %>
         メールアドレス　<i class="fa-solid fa-envelope-circle-check lead text-success"></i>
@@ -17,7 +17,7 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
     </div>
   </div>
-  <div class="form-group d-flex row">
+  <div class="form-group d-flex row mx-3">
     <div class="col-sm-12 col-md-3">
       <%= f.label :password do %>
         パスワード　<i class="fa-solid fa-unlock-keyhole lead text-success"></i>
