@@ -8,12 +8,6 @@ module ApplicationHelper
     ary[user.generation]
   end
 
-  def no_evaluation
-    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user)
-    @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
-    @sum == 0 ? '(まだだれからも評価はありません)' : ''
-  end
-
   def sum_impression
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
     @sum == 0 ? 'まだ評価はありません' : @sum * 10 / @evaluations.count

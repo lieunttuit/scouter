@@ -1,16 +1,12 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: { maximum: 50 }
   validates :character, length: { maximum: 50 }
   validates :hobby, length: { maximum: 50 }
   validates :image, 
-    # presence: true,
     content_type: [:png, :jpg, :jpeg, :heic],
     size: { less_than_or_equal_to: 5.megabytes }
-    # dimension: { width: { max: 500 }, height: { max: 500 }}
   validates :sub_images, 
     content_type: [:png, :jpg, :jpeg, :heic],
     size: { less_than_or_equal_to: 5.megabytes }

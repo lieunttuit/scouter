@@ -43,7 +43,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   def destroy
     @user.destroy
     redirect_to users_url, notice: "「#{@user.name}」さんは退会しました。"

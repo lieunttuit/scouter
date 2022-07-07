@@ -8,14 +8,11 @@
             <%= image_tag "https://cdn.with.is/assets/shared/icons/point-13022b529ea3220c018a44897946eab5913d018375c5f482c11452b24a92b2bc.svg", width: "25" %><br /><span class="font-weight-bold lead"><%= current_user.point %></span> ポイント所持
           </small>
         <% end %>
-
       </div>
       <% if flash.notice %>
         <div class="alert alert-light"><%= flash.notice %></div>
       <% end %>
-
       <%= yield %>
-
     </div>
   </body>
   <%= render "shared/footer" %>
