@@ -70,8 +70,10 @@ module ApplicationHelper
         '■■■'
       elsif point >= 2
         '■■'
-      else point >= 1
+      elsif point >= 1
         '■'
+      else
+        ''
       end
     else
       ''
