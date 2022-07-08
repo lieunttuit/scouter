@@ -8,6 +8,11 @@ module ApplicationHelper
     ary[user.generation]
   end
 
+  def evaluation_count(num)
+    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { sex: num })
+    @evaluations.count
+  end
+
   def sum_impression
     @sum = @evaluations.sum { |hash| hash[:evaluation_point] }
     @sum == 0 ? 'まだ評価はありません' : @sum * 10 / @evaluations.count
@@ -15,6 +20,11 @@ module ApplicationHelper
 
   def impression_each_generation(num)
     @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { generation: num })
+    sum_impression
+  end
+
+  def impression_each_gender(num)
+    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user).where(users: { sex: num })
     sum_impression
   end
 

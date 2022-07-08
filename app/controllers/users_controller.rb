@@ -3,13 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :correct_user, :purge_image]
 
   def index
-    if current_user
-      @users = if current_user.sex == 0
-                 User.where(sex: 1).order('updated_at DESC').paginate(page: params[:page], per_page: 4)
-               else
-                 User.where(sex: 0).order('updated_at DESC').paginate(page: params[:page], per_page: 4)
-               end
-    end
+    @users = User.all.order('updated_at DESC').paginate(page: params[:page], per_page: 4)
   end
 
   def show

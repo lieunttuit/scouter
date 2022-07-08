@@ -22,6 +22,14 @@ body {
   color: #87091A;
 }
 
+.text-deepred {
+  color: #c1192f;
+}
+
+.text-orange {
+  color: #f39800;
+}
+
 .bg-brown {
   background: #7a6666;
 }
