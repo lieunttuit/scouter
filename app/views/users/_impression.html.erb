@@ -19,8 +19,8 @@
     </p>
     <h3 class="text-info py-3">- 世代別支持率 -</h3>
     <% for num in 0..5 do %>
-      <p class="lead"><%= num + 1 %>0代:
-      <span class="text-info text-left"><%= impression_graph(num) %></span>
+      <p class="lead text-left"><%= num + 1 %>0代:
+      <span class="text-info"><%= impression_graph(num) %></span>
       <span class="text-info">（<%= impression_each_generation(num) %>）</span>
       </p>
     <% end %>
