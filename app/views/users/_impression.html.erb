@@ -1,10 +1,10 @@
 <div class="card-deck justify-content-center">
 
-  <div class="card-prof border py-5 px-2 mt-4">
+  <div class="card-prof border py-5 px-3 mt-4">
     <p>
       <i class="fa-solid fa-chart-simple fa-3x text-deepred"></i>
     </p>
-    <h3 class="text-deepred mb-5">- <%= @user.name %>さんの印象は？ -</h3>
+    <h3 class="text-deepred py-3">- <%= @user.name %>さんの印象 -</h3>
     <p class="lead font-weight-bold">Total</p>
     <div class="lead font-weight-bold text-deepred">
       <%= impression_total %>
@@ -13,30 +13,30 @@
     <p class="mt-2 lead text-secondary">（<%= @evaluations.count %>人に評価されました！）</p>
   </div>
 
-  <div class="card-prof border py-5 px-2 mt-4">
+  <div class="card-prof border py-5 px-3 mt-4">
     <p>
       <i class="fa-solid fa-user-group fa-3x text-info"></i>
     </p>
     <h3 class="text-info py-3">- 世代別支持率 -</h3>
     <% for num in 0..5 do %>
-      <p class="lead"><%= num + 1 %>0代：
-      <span class="text-info"><%= impression_graph(num) %></span>
-      <span class="text-info pl-2">（<%= impression_each_generation(num) %>）</span>
+      <p class="lead"><%= num + 1 %>0代:
+      <span class="text-info text-left"><%= impression_graph(num) %></span>
+      <span class="text-info">（<%= impression_each_generation(num) %>）</span>
       </p>
     <% end %>
   </div>
 
-  <div class="card-prof border py-5 px-2 mt-4">
+  <div class="card-prof border py-5 px-3 mt-4">
     <p>
       <i class="fa-solid fa-user-group fa-3x text-orange"></i>
     </p>
     <h3 class="text-orange py-3">- 性別別支持率 -</h3>
     <% for num in 0..1 do %>
-      <p class="lead"><%= num==0?'女':'男' %>性：
+      <p class="lead text-left"><%= num==0?'女':'男' %>性:
       <span class="text-orange"><%= impression_graph(num) %></span>
-      <span class="text-orange pl-2">（<%= impression_each_gender(num) %>）</span>
+      <span class="text-orange">（<%= impression_each_gender(num) %>）</span>
       <br />
-      <small class="text-secondary">(<%= num==0?'女':'男' %>性<%= evaluation_count(0) %>人に評価されました。)</small>
+      <small class="text-secondary ml-2">(<%= num==0?'女':'男' %>性<%= evaluation_count(num) %>人に評価されました。)</small>
       </p>
     <% end %>
   </div>
