@@ -6,7 +6,7 @@
     </p>
     <h3 class="text-deepred py-3">- <%= @user.name %>さんの印象 -</h3>
     <p class="lead font-weight-bold">Total</p>
-    <div class="lead font-weight-bold text-deepred">
+    <div class="display-3 font-weight-bold text-deepred">
       <%= impression_total %>
     </div><small>/100</small>
     <p class="text-danger lead font-weight-bold mt-2"><%= impression_comment(@user.sex) %></p>
@@ -33,10 +33,10 @@
     <h3 class="text-orange py-3">- 性別別支持率 -</h3>
     <% for num in 0..1 do %>
       <p class="lead text-left"><%= num==0?'女':'男' %>性:
-      <span class="text-orange"><%= impression_graph(num) %></span>
+      <span class="text-orange"><%= impression_graph_gender(num) %></span>
       <span class="text-orange">（<%= impression_each_gender(num) %>）</span>
       <br />
-      <small class="text-secondary ml-2">(<%= num==0?'女':'男' %>性<%= evaluation_count(num) %>人に評価されました。)</small>
+      <small class="text-secondary ml-4 pl-4">(<%= num==0?'女':'男' %>性<%= evaluation_count(num) %>人に評価されました)</small>
       </p>
     <% end %>
   </div>

@@ -49,34 +49,22 @@ module ApplicationHelper
   end
 
   def impression_graph(num)
-    if impression_each_generation(num) != 'まだ評価はありません'
+    if impression_each_generation(num) == 'まだ評価はありません'
+      ''
+    else
       point = impression_each_generation(num) /10
       point = point.round
-      if point == 10
-        '■■■■■■■■■■'
-      elsif point >= 9
-        '■■■■■■■■■'
-      elsif point >= 8
-        '■■■■■■■■'
-      elsif point >= 7
-        '■■■■■■■'
-      elsif point >= 6
-        '■■■■■■'
-      elsif point >= 5
-        '■■■■■'
-      elsif point >= 4
-        '■■■■'
-      elsif point >= 3
-        '■■■'
-      elsif point >= 2
-        '■■'
-      elsif point >= 1
-        '■'
-      else
-        ''
-      end
-    else
+      '■' * point
+    end
+  end
+
+  def impression_graph_gender(num)
+    if impression_each_gender(num) == 'まだ評価はありません'
       ''
+    else
+      point = impression_each_gender(num) /10
+      point = point.round
+      '■' * point
     end
   end
 end
