@@ -1,6 +1,5 @@
 class Admin::UsersController < ApplicationController
   before_action :require_admin
-  # before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @q = User.all.ransack(params[:q])
