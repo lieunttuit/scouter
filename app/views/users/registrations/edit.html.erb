@@ -32,7 +32,7 @@
       </tr>
       <tr>
         <th><%= f.label :sex, '性別', class: "text-muted" %></th>
-        <td><%= f.select :sex, [['女性', 0], ['男性', 1]], {}, { id: "sex", class: "form-control" } %></td>
+        <td><%= f.select :sex, [['女性', 0], ['男性', 1]], {}, { id: "sex", disabled: true, class: "form-control" } %></td>
       </tr>
       <tr>
         <th><%= f.label :hobby, '趣味', class: "text-muted" %></th>
