@@ -1,3 +1,6 @@
+# アプリ名
+
+「スカウター」 <a href="https://scouter.fun/">https://scouter.fun/</a>
 <p align="center">
   <img src="https://scouter.fun/assets/readme-img.png" />
 </p>
@@ -41,6 +44,10 @@
 * ユーザー評価一覧表示
 
 # 環境構築
+
+<p align="center">
+  <img src="https://scouter.fun/assets/system.png" />
+</p>
 
 * フロントエンド
     - HTML
