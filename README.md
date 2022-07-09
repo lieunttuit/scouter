@@ -2,7 +2,7 @@
 
 「スカウター」 <a href="https://scouter.fun/">https://scouter.fun/</a>
 <p align="center">
-  <img src="https://scouter.fun/assets/readme-img.png" />
+  <img src="https://image.scouter.fun/readme-img.png" width="400" />
 </p>
 
 # 概要
@@ -46,7 +46,7 @@
 # 環境構築
 
 <p align="center">
-  <img src="https://scouter.fun/assets/system.png" />
+  <img src="https://image.scouter.fun/systme.png" width="300" />
 </p>
 
 * フロントエンド

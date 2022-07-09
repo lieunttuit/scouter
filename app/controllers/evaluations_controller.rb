@@ -14,6 +14,7 @@ class EvaluationsController < ApplicationController
 
     if @evaluation.save!
       gain_point
+      # give_point
       redirect_to users_path, notice: "評価(#{@evaluation.evaluation_point}/10)をして1ポイント獲得しました。"
     else
       render :new
@@ -34,5 +35,11 @@ class EvaluationsController < ApplicationController
     @point = current_user.point
     @point += 1
     current_user.update!(point: @point)
+  end
+
+  def give_point
+    @point = @user.point
+    @point += 1
+    @user.update!(point: @point)
   end
 end
