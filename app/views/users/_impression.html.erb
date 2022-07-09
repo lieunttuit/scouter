@@ -17,26 +17,33 @@
     <p>
       <i class="fa-solid fa-user-group fa-3x text-info"></i>
     </p>
-    <h3 class="text-info py-3">- 世代別支持率 -</h3>
+    <h3 class="text-info pt-3 pb-5">- 世代別支持率 -</h3>
     <% for num in 0..5 do %>
-      <p class="lead text-left"><%= num + 1 %>0代:
-      <span class="text-info"><%= impression_graph(num) %></span>
-      <span class="text-info">（<%= impression_each_generation(num) %>）</span>
+      <p class="lead text-info text-left">
+        <span class="font-weight-bold"><%= num + 1 %>0代:</span><%= impression_graph(num) %>（<%= impression_each_generation(num) %>）
       </p>
     <% end %>
   </div>
 
   <div class="card-prof border py-5 px-3 mt-4">
     <p>
-      <i class="fa-solid fa-user-group fa-3x text-orange"></i>
+      <i class="fa-solid fa-venus-mars fa-3x text-orange"></i>
     </p>
     <h3 class="text-orange py-3">- 性別別支持率 -</h3>
     <% for num in 0..1 do %>
-      <p class="lead text-left"><%= num==0?'女':'男' %>性:
-      <span class="text-orange"><%= impression_graph_gender(num) %></span>
-      <span class="text-orange">（<%= impression_each_gender(num) %>）</span>
-      <br />
-      <small class="text-secondary ml-4 pl-4">(<%= num==0?'女':'男' %>性<%= evaluation_count(num) %>人に評価されました)</small>
+      <i class="fa-solid fa-2x text-orange my-3
+        <% if num==0 %>
+         fa-venus
+        <% else %>
+         fa-mars
+        <% end %>">
+      </i>
+      <p class="lead text-orange text-left">
+        <span class="font-weight-bold"><%= num==0?'女':'男' %>性:</span><%= impression_graph_gender(num) %>（<%= impression_each_gender(num) %>）
+        <br />
+        <small class="text-secondary ml-4 pl-4">
+          (<%= num==0?'女':'男' %>性<%= evaluation_count(num) %>人に評価されました)
+        </small>
       </p>
     <% end %>
   </div>
