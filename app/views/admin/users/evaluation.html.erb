@@ -16,8 +16,9 @@
         <tr>
             <td><%= eval.id %></td>
             <td><%= eval.evaluation_point %>pts</td>
-            <td><%= eval.user_id %></td>
-            <td><%= eval.evaluatee_id %></td>
+            <td><%= link_to "#{eval.user.name}", user_path(eval.user_id) %></td>
+            <% @user = User.find(eval.evaluatee_id) %>
+            <td><%= link_to "#{@user.name}", user_path(eval.evaluatee_id) %></td>
         </tr>
     <% end %>    
     </tbody>
