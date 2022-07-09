@@ -9,16 +9,16 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :users
+    resources :users, only: [:index]
     get '/evaluation', to: 'users#evaluation'
   end
 
   resources :users do
     member do
       post :details
+      get :details, to: 'users#show'
     end
   end
-  get '/users/:id/details', to: 'users#show'
 
   delete "attachements/:id/purge", to: "attachments#purge", as: "purge_attachment"
   
