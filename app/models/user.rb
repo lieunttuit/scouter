@@ -11,7 +11,7 @@ class User < ApplicationRecord
     content_type: [:png, :jpg, :jpeg, :heic],
     size: { less_than_or_equal_to: 5.megabytes }
 
-  FILE_NUMBER_LIMIT = 2
+  FILE_NUMBER_LIMIT = 3
   validate :validate_number_of_sub_images
 
   has_many :evaluations, dependent: :destroy

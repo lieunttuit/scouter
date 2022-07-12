@@ -65,7 +65,7 @@
         </td>
       </tr>
       <tr>
-        <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %><br /><span class="small text-info">(サブ画像は２枚まで選択可)</span></th>
+        <th><%= f.label :sub_images, 'サブ画像', class: "text-muted" %><br /><span class="small text-info">(サブ画像は3枚まで選択可)</span></th>
         <td>
           <%= f.file_field :sub_images, multiple: true, class: "form-control" %>
           <% if @user.sub_images.attached? %>
