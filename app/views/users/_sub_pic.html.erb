@@ -1,13 +1,41 @@
 <% if @user.sub_images.attached? %>
-<div class="text-divider font-weight-bold text-dark pb-4 mt-4">サブ画像</div>
-  <% @user.sub_images.each do |attachment| %>
-    <div class="mb-3">
-      <%= image_tag attachment.variant(resize: "300x400"), class: 'rounded border mx-2 mb-3' %>
-      <% if current_user.id == @user.id %>
-        <br />
-          <small><%= link_to "[▲クリックして画像削除]", purge_attachment_path(attachment), class: "text-chocolate", method: :delete,  data: { confirm: "「画像を削除します。よろしいですか？"} %></small>
-        <br />
+  <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <% @user.sub_images.first(1).each do |attachment| %>
+          <%= image_tag attachment.variant(resize: "300x400"), class: 'rounded border mx-2 mb-3' %>
+          <% if current_user.id == @user.id %>
+            <p class="small"><%= link_to "▲画像削除", purge_attachment_path(attachment), class: "btn-info btn-sm rounded-pill", method: :delete,  data: { confirm: "「画像を削除します。よろしいですか？"} %></p>
+          <% end %>
+        <% end %>
+      </div>
+
+      <% if @user.sub_images[1] %>
+        <div class="carousel-item">
+          <% @user.sub_images.drop(1).each do |attachment| %>
+            <%= image_tag attachment.variant(resize: "300x400"), class: 'rounded border mx-2 mb-3' %>
+            <% if current_user.id == @user.id %>
+              <p class="small"><%= link_to "▲画像削除", purge_attachment_path(attachment), class: "btn-info btn-sm rounded-pill", method: :delete,  data: { confirm: "「画像を削除します。よろしいですか？"} %></p>
+            <% end %>
+          <% end %>
+        </div>
       <% end %>
     </div>
-  <% end %>
+    <% if @user.sub_images[1] %>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    <% end %>
+  </div>
 <% end %>
+
+
+
+
+
+
