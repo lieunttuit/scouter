@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user)
   end
 
   def new

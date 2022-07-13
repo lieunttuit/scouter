@@ -18,6 +18,7 @@
     <p class="lead pt-3"><%= yield(:title) %><br />
       <span class="small text-muted">さん</small>
     </p>
+    
     <div class="card-prof-content text-wine">
       <div class="text-divider font-weight-bold text-dark pb-4">基本情報</div>
       <p><span class="small text-dark"><%= User.human_attribute_name(:hobby) %>：　</span><%= @user.hobby %></p>
@@ -27,7 +28,15 @@
         <p><span class="small text-dark"><%= User.human_attribute_name(:sex) %>：　</span><%= set_sex(@user) %></p>
         <p><span class="small text-dark"><%= User.human_attribute_name(:generation) %>：　</span><%= set_generation(@user) %></p>
         <p class="font-weight-bold text-dark mt-5"><%= image_tag "https://cdn.with.is/assets/shared/icons/point-13022b529ea3220c018a44897946eab5913d018375c5f482c11452b24a92b2bc.svg", width: "50" %>　<%= User.human_attribute_name(:point) %><br /><span class="display-3"><%= @user.point %></span></p>
+        
       <% end %>
+      <p class="mt-2 lead text-secondary">
+        <% if @evaluations.count == 0 %>
+        （まだ評価がありません）
+        <% else %>
+        （<%= @evaluations.count %>人が評価しています）
+        <% end %>
+      </p>
       <%# サブ画像ブロック %>
       <%= render "sub_pic" %>
       <%# プロフの編集 %>
