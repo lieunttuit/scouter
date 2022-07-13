@@ -102,9 +102,8 @@ footer {
   margin-top: -23px;
   background-image: url("main_visual.jpg");
   background-repeat: no-repeat;
-  margin-left: -100px;
-  margin-right: -100px;
   height: 600px;
+  width: 100%;
 }
 
 .jumbotron.main-visual {
@@ -738,10 +737,6 @@ a.btn-border:hover:after {
 }
 
 @media screen and (max-width: 414px) {
-  .jumbotron {
-    margin-left:0;
-    margin-right:0;
-  }
   .jumbotron.main-visual {
     height: 250px;
     h1 {
