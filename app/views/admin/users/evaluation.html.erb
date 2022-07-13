@@ -5,7 +5,7 @@
 <table class="table table-hover bg-white shadow-sm my-3">
     <thead class="thead-default bg-light">
         <tr class="text-center">
-            <th>ID</th>
+            <th>評価日</th>
             <th>評価点</th>
             <th>評価した人</th>
             <th>評価された人</th>
@@ -14,7 +14,7 @@
     <tbody>
     <% @evaluations.each do |eval| %>
         <tr>
-            <td><%= eval.id %></td>
+            <td><%= eval.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
             <td><%= eval.evaluation_point %>pts</td>
             <td><%= link_to "#{eval.user.name}", user_path(eval.user_id), class: 'text-info' %></td>
             <% @user = User.find(eval.evaluatee_id) %>
