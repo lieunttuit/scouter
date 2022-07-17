@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def evaluations
-    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user)
+    @evaluations = Evaluation.where(evaluatee_id: current_user.id)
   end
 
   def purge_image
