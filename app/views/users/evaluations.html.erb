@@ -1,7 +1,7 @@
-<%# if @evaluations.count == 0 %>
+<% if @evaluations.count == 0 %>
     <p class="lead text-info mt-5 pt-5">まだだれからも評価がありません。</p>
     <p class="px-4">こちらからどんどん評価していくと相手から評価されやすくまたポイントも貯まります！</p>
-<%# else %>
+<% else %>
     <table class="table table-hover bg-white shadow-sm my-3">
         <thead class="thead-default bg-light">
             <tr class="text-center">
@@ -30,4 +30,4 @@
         <% end %>    
         </tbody>
     </table>    
-<%# end %>
+<% end %>
