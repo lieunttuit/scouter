@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :correct_user, :purge_image]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :evaluations, :correct_user, :purge_image]
 
   def index
     @users = User.order("RANDOM()").all
@@ -47,6 +47,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     lose_point
     flash[:notice] = "3ポイント消化。(所持ポイント#{@point})"
+  end
+
+  def evaluations
+    @evaluations = Evaluation.where(evaluatee_id: @user.id).includes(:user)
   end
 
   def purge_image
