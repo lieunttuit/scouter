@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     member do
       post :details
       get :details, to: 'users#show'
-      get :evaluations
+      get :evaluations, to: 'users#evaluations'
     end
   end
 
