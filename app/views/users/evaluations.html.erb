@@ -1,7 +1,8 @@
-評価ページ
-
-
-<table class="table table-hover bg-white shadow-sm my-3">
+<% if @evaluations.count == 0 %>
+    <p class="lead text-info mt-5 pt-5">まだだれからも評価がありません。</p>
+    <p class="px-4">こちらからどんどん評価していくと相手から評価されやすくまたポイントも貯まります！</p>
+<% else %>
+    <table class="table table-hover bg-white shadow-sm my-3">
         <thead class="thead-default bg-light">
             <tr class="text-center">
                 <th>評価した人</th>
@@ -14,6 +15,11 @@
         <% @evaluations.each do |eval| %>
             <tr>
                 <td class="text-left">
+                    <% if eval.user.image.attached? %>
+                        <%= image_tag eval.user.image, width:30   %>
+                    <% else %>
+                        <%=image_tag "default_profile_img.png", width:30 %>
+                    <% end %>
                     <%= link_to "#{eval.user.name}", user_path(eval.user_id), class: 'text-info' %>
                 </td>
                 <td><%= eval.evaluation_point %>pts</td>
@@ -23,3 +29,4 @@
         <% end %>    
         </tbody>
     </table>    
+<% end %>
