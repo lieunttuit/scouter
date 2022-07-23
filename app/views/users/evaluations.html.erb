@@ -2,6 +2,7 @@
     <p class="lead text-info mt-5 pt-5">まだだれからも評価がありません。</p>
     <p class="px-4">こちらからどんどん評価していくと相手から評価されやすくまたポイントも貯まります！</p>
 <% else %>
+<div class="mx-3">
     <table class="table table-hover bg-white shadow-sm my-3">
         <thead class="thead-default bg-light">
             <tr class="text-center">
@@ -13,10 +14,10 @@
         </thead>
         <tbody>
         <% @evaluations.each do |eval| %>
-            <tr>
-                <td class="text-left">
+            <tr class="text-left">
+                <td>
                     <% if eval.user.image.attached? %>
-                        <%= image_tag eval.user.image, width:30   %>
+                        <%= image_tag eval.user.image, width:30  %>
                     <% else %>
                         <%=image_tag "default_profile_img.png", width:30 %>
                     <% end %>
@@ -29,4 +30,5 @@
         <% end %>    
         </tbody>
     </table>    
+</div>
 <% end %>
