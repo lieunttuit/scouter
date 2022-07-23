@@ -2,28 +2,29 @@
 
 <p class="lead"><%= yield(:title) %></p>
 
-<table class="table table-hover bg-white shadow-sm my-3">
-    <thead class="thead-default bg-light">
-        <tr class="text-center">
-            <th>評価日</th>
-            <th>評価点</th>
-            <th>評価した人</th>
-            <th>評価された人</th>
-        </tr>
-    </thead>
-    <tbody>
-    <% @evaluations.each do |eval| %>
-        <tr>
-            <td><%= eval.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
-            <td><%= eval.evaluation_point %>pts</td>
-            <td><%= link_to "#{eval.user.name}", user_path(eval.user_id), class: 'text-info' %></td>
-            <% @user = User.find(eval.evaluatee_id) %>
-            <td><%= link_to "#{@user.name}", user_path(eval.evaluatee_id), class: 'text-info' %></td>
-        </tr>
-    <% end %>    
-    </tbody>
-</table>
-
+<div class="mx-3">
+    <table class="table table-hover bg-white shadow-sm my-3">
+        <thead class="thead-default bg-light">
+            <tr class="text-center">
+                <th>評価日</th>
+                <th>評価点</th>
+                <th>評価した人</th>
+                <th>評価された人</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @evaluations.each do |eval| %>
+            <tr>
+                <td><%= eval.created_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+                <td><%= eval.evaluation_point %>pts</td>
+                <td><%= link_to "#{eval.user.name}", user_path(eval.user_id), class: 'text-info' %></td>
+                <% @user = User.find(eval.evaluatee_id) %>
+                <td><%= link_to "#{@user.name}", user_path(eval.evaluatee_id), class: 'text-info' %></td>
+            </tr>
+        <% end %>    
+        </tbody>
+    </table>
+</div>
 <div class="nav-scroller py-1 mb-2"> 
 	<nav class="d-flex"> 
     <ul class="pagination pagination-sm flex-sm-wrap"> 
