@@ -1,1 +1,30 @@
 評価ページ
+
+
+<table class="table table-hover bg-white shadow-sm my-3">
+        <thead class="thead-default bg-light">
+            <tr class="text-center">
+                <th>評価した人</th>
+                <th>評価点</th>
+                <th>評価した人の性格</th>
+                <th>評価した人の趣味</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% @evaluations.each do |eval| %>
+            <tr>
+                <td class="text-left">
+                    <% if eval.user.image.attached? %>
+                        <%= image_tag user.image, width:30   %>
+                    <% else %>
+                        <%=image_tag "default_profile_img.png", width:30 %>
+                    <% end %>
+                    <%= link_to "#{eval.user.name}", user_path(eval.user_id), class: 'text-info' %>
+                </td>
+                <td><%= eval.evaluation_point %>pts</td>
+                <td><%= eval.user.character %></td>
+                <td><%= eval.user.hobby %></td>
+            </tr>
+        <% end %>    
+        </tbody>
+    </table>    
