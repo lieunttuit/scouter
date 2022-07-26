@@ -46,7 +46,7 @@
 # 環境構築
 
 <p align="center">
-  <img src="https://image.scouter.fun/systme.png" width="500" />
+  <img src="https://image.scouter.fun/system.png" width="500" />
 </p>
 
 * フロントエンド
