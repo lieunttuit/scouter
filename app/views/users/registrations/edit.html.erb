@@ -54,7 +54,7 @@
           <%= f.file_field :image, class: "form-control" %>
           <% if @user.image.attached? %>
             <div class="d-flex justify-content-start mt-2">
-              <%= image_tag @user.image.variant(resize: "30x30"), class:'px-2' %><span class="small">選択画像</span>
+              <%= image_tag @user.image.variant(resize: "30x30"), class:'px-2 rounded-circle' %><span class="small">選択画像</span>
             </div>
           <% else %>
             <span class="small">画像がありません。</span>
