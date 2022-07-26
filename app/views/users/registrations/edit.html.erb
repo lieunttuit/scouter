@@ -5,8 +5,10 @@
     <% end %>
   </ul>
 <% end %>
+
 <span class="small text-danger">※は必須項目</span>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="mx-3">
   <table class="table table-hover bg-light shadow-sm">
     <tbody>
       <tr>
@@ -66,9 +68,8 @@
           <% if @user.sub_images.attached? %>
             <div class="d-flex justify-content-start mt-2">
               <% @user.sub_images.each do |sub_image| %>
-                <%#= f.check_box :sub_image_ids, { multiple: true }, sub_image.id, false %>
                 <label for="user_sub_images_<%= sub_image.id %>">
-                  <%= image_tag sub_image.variant(resize: "30x30"), class:'px-2' %>
+                  <%= image_tag sub_image.variant(resize: "30x30"), class:'px-2 rounded-circle' %>
                 </label>
               <% end %>
               <p class="small">選択画像</p>
@@ -80,7 +81,7 @@
       </tr>
     </tbody>
   </table> 
-
+</div>
   <div class="text-center">
     <%= f.submit "更新する", class: "btn btn-info rounded-pill" %>
   </div>
