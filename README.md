@@ -2,7 +2,7 @@
 
 「スカウター」 <a href="https://scouter.fun/">https://scouter.fun/</a>
 <p align="center">
-  <img src="https://image.scouter.fun/readme-img.png" width="600" />
+  <img src="https://image.scouter.fun/readme-top.jpg" />
 </p>
 
 # 概要
