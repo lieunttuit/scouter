@@ -53,6 +53,9 @@ class UsersController < ApplicationController
     @evaluations = Evaluation.where(evaluatee_id: current_user.id)
   end
 
+  def manual
+  end
+
   def purge_image
     @user.image.purge
     redirect_back fallback_location: user_path(@user), notice: "画像は削除されました。"

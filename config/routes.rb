@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       get :details, to: 'users#show'
       get :evaluations, to: 'users#evaluations'
     end
+    collection do
+      get :manual, to: 'users#manual'
+    end
   end
 
   delete "attachements/:id/purge", to: "attachments#purge", as: "purge_attachment"

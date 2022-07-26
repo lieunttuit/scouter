@@ -18,6 +18,11 @@
           <i class="fa-solid fa-face-smile lead text-wine"></i>
         <% end %>
       </li>
+      <li class="nav_item">
+        <%= link_to manual_users_path, class: 'nav-link' do %>
+          <i class="fa-solid fa-book-open lead text-wine"></i>
+        <% end %>
+      </li>
       <% end %>
       <% if current_user.admin? %>
         <li class="nav_item">
