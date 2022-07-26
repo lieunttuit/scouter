@@ -17,9 +17,9 @@
             <tr class="text-left">
                 <td>
                     <% if eval.user.image.attached? %>
-                        <%= image_tag eval.user.image, width:30  %>
+                        <%= image_tag eval.user.image, width:30, class: 'rounded-circle' %>
                     <% else %>
-                        <%=image_tag "default_profile_img.png", width:30 %>
+                        <%=image_tag "default_profile_img.png", width:30, class: 'rounded-circle' %>
                     <% end %>
                     <%= link_to "#{eval.user.name}", user_path(eval.user_id), class: 'text-info' %>
                 </td>
