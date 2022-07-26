@@ -37,6 +37,8 @@
 * 画像のアップロードと削除
 * ユーザー一覧表示
 * ユーザープロフィール表示
+* ユーザーを評価した他ユーザーの一覧表示
+* マニュアル表示
 * 評価ポイント取得、消失
 
 ◆管理者（ユーザー機能以外）
@@ -51,17 +53,18 @@
 
 * フロントエンド
     - HTML
-    - CSS
-    - JavaScript
+    - CSS(SCSS)
+    - Bootstrap4
 * バックエンド
     - Ruby 2.7.6
     - Ruby on Rails 6.1.6
     - PostgreSQL 13.7
     - Nginx 1.20-alpine
-    - Puma  5.6.4
+    - Puma 5.6.4
+    - Rubocop 1.30.1
+* 開発環境
+    - Docker／Docker Compose    
 * インフラ
-    - AWS（EC2, Route53, ELB, ACM, RDS, S3, CloudFront）
+    - AWS（VPC／EC2／Route53／Internet Gateway／ALB／ACM／RDS／S3／CloudFront）
 * その他
     - Git/GitHub
-    - VSCode
-    - Docker
