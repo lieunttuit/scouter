@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def evaluations
-    @evaluations = Evaluation.where(evaluatee_id: current_user.id)
+    @evaluations = Evaluation.where(evaluatee_id: current_user.id).order('created_at DESC')
   end
 
   def manual
